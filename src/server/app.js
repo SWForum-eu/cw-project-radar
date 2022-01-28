@@ -71,7 +71,8 @@ app.use(
     helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: ["'self'", 'wss://localhost', 'https://www.google-analytics.com/'],
+                defaultSrc: ["'self'", 'ws://localhost:*/', 'wss://localhost', 'https://www.google-analytics.com/'],
+                // defaultSrc: ["'self'", 'wss://localhost', 'https://www.google-analytics.com/'],
                 baseUri: ["'self'"],
                 fontSrc: ["'self'", 'https:', 'data:'],
                 frameAncestors: [
@@ -83,7 +84,8 @@ app.use(
                 imgSrc: ["'self'", 'data:'],
                 objectSrc: ["'none'"],
                 scriptSrcAttr: ["'none'"],
-                scriptSrc: ["'self'", "'unsafe-inline'", 'https://www.google-analytics.com/'],
+                scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'", 'https://www.google-analytics.com/'],
+                // scriptSrc: ["'self'", "'unsafe-inline'", 'https://www.google-analytics.com/'],
                 styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
             },
             blockAllMixedContent: true,

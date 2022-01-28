@@ -9,3 +9,4 @@ dist
 *.pem
 __OLD__
 _playground_
+.parcel-cache

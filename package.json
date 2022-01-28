@@ -2,7 +2,6 @@
     "name": "cw-project-radar",
     "version": "1.1.2",
     "description": "A re-implementation of the ThoughtWorks Technology Radar using express, webpack, MongoDB and many other goodies.",
-    "main": "server.js",
     "scripts": {
         "preinstall": "npx npm-force-resolutions",
         "clean": "rm -rf dist && rm src/client/views/*.js && rm -rf src/client/bundle*",
@@ -14,9 +13,11 @@
         "build:c:static": "cp -R src/client/css dist/client && cp -R src/client/img dist/client",
         "build:s": "rm -rf dist/server && mkdir dist/server && cp -R src/server dist && cp -R src/common dist && cp .env.prod dist/.env",
         "dev": "cp .env.dev .env && nodemon src/server/server.js",
-        "dev:watch:pug": "pug -O '{module: true}' -c -w --name-after-file -o src/client/views src/client/views",
-        "dev:watch:js": "parcel watch src/client/js/*.js --out-dir src/client",
+        "devwin": "copy .env.dev .env && nodemon src/server/server.js",
+        "dev:watch:pug": "pug -c -w --name-after-file -o src/client/views src/client/views",
+        "dev:watch:js": "parcel watch --dist-dir src/client src/client/js/*.js",
         "start": "cp .env.prod .env && node server/server.js",
+        "startwin": "copy .env.prod .env && node server/server.js",
         "debug": "ndb server.js",
         "init": "sh scripts/mongo/init.sh",
         "import": "sh scripts/mongo/import.sh",
@@ -74,6 +75,7 @@
         "xss-clean": "^0.1.1"
     },
     "devDependencies": {
+        "@babel/preset-env": "^7.16.11",
         "dot-prop": "^5.3.0",
         "eslint": "^7.13.0",
         "eslint-config-prettier": "^6.15.0",
@@ -82,12 +84,12 @@
         "jest": "^26.6.1",
         "ndb": "^1.1.5",
         "nodemon": "^2.0.6",
-        "parcel-bundler": "^1.12.4",
+        "parcel": "^2.2.1",
         "prettier": "^2.1.2",
         "pug-cli": "^1.0.0-alpha6"
     },
     "engines": {
-        "node": "^13"
+        "node": "^16"
     },
     "browser": {
         "fs": false

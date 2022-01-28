@@ -21,7 +21,7 @@ html
       link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700')
       link(rel='stylesheet' href='/css/styles.css')
     block scripts
-      script(defer src='/radar.js')
+      script(type='module' defer src='/radar.js')
 
   body(data-alertmsg=`${alert ? alert.message : ''}`, data-alerttype=`${alert ? alert.status : ''}`)
     //- HEADER
