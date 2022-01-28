@@ -27,7 +27,7 @@ const isDecimal = (value) => {
 const projectSchema = new mongoose.Schema(
     {
         // cloudwatch gives it a unique id - automatically set using a sequence!!
-        cw_id: {
+        swf_id: {
             type: Number,
             unique: 'A project with the CW id {{VALUE}} already exists.',
         },
@@ -80,11 +80,14 @@ const projectSchema = new mongoose.Schema(
             type: String,
             validate: validator.isURL,
         },
-        // URL to the CW ProjectHub
-        cwurl: {
-            type: String,
-            validate: [validator.isURL, 'Invalid URL.'],
-        },
+        // // URL to the CW ProjectHub
+        // cwurl: {
+        //     type: String,
+        //     validate: [validator.isURL, 'Invalid URL.'],
+        // }, 
+        // check if the project will have this feature or not
+
+        //same for tags
         tags: {
             type: [String],
             validate: {
@@ -115,7 +118,7 @@ const projectSchema = new mongoose.Schema(
 // ensure that cw_id gets a unique number.
 projectSchema.pre('save', async function (next) {
     if (this.isNew) {
-        this.cw_id = await nextSeq('project')
+        this.swf_id = await nextSeq('project')
     }
 
     next()
@@ -124,7 +127,7 @@ projectSchema.pre('save', async function (next) {
 //
 // INDEXES
 //
-projectSchema.index({ cw_id: 1 }) // index on the project's CW id
+projectSchema.index({ swf_id: 1 }) // index on the project's CW id
 projectSchema.index({ acronym: 1 }) // index on the project's CW id
 projectSchema.index({ rcn: 1 }) // index on the project's RCN
 projectSchema.index({ acronym: 'text', title: 'text', teaser: 'text' }) // text indexes for textual search
