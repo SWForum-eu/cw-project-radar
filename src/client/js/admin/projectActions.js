@@ -83,7 +83,7 @@ const updateProject = async (prjData) => {
     console.log(prjData)
     try {
         const {
-            cw_id,
+            num_id,
             acronym,
             title,
             rcn,
@@ -100,7 +100,7 @@ const updateProject = async (prjData) => {
         } = prjData
         const res = await axios({
             method: 'PATCH',
-            url: `/api/v1/project/${prjData.cw_id}`,
+            url: `/api/v1/project/${prjData.num_id}`,
             data: {
                 acronym,
                 title,

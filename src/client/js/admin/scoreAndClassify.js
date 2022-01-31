@@ -35,11 +35,11 @@ const addClassification = async (cw_id, classification, classifiedBy, changeSumm
 //
 // add classification to a project
 //
-const addScore = async (cw_id, mrl, trl, scoringDate, description) => {
+const addScore = async (num_id, mrl, trl, scoringDate, description) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `/api/v1/project/${cw_id}/score`,
+            url: `/api/v1/project/${num_id}/score`,
             data: {
                 mrl,
                 trl,

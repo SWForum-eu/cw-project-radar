@@ -14,9 +14,9 @@ const importHelper = require('./projects/projectsImportHelper')
 //
 // IMPORTANT - this function returns a Javascript object, NOT a mongoose model!
 //
-exports.getByCWId = async (cwid, addScores, addClassifications) => {
+exports.getByNumId = async (num_id, addScores, addClassifications) => {
     // 1) Build the aggregation by matchng the project
-    const query = Project.aggregate().match({ cw_id: { $eq: Number(cwid) } })
+    const query = Project.aggregate().match({ num_id: { $eq: Number(num_id) } })
 
     // 2) add score(s) if requested
     if (addScores) {
@@ -82,10 +82,10 @@ exports.getByRCN = async (rcn) => {
 //
 // Add a MTRL score to a project
 //
-exports.addCategory = async (cwid, data) => {
+exports.addCategory = async (num_id, data) => {
     // 1) Get the corresponding project
-    const project = await this.getByCWId(cwid)
-    if (!project) throw new AppError(`No project found with id ${cwid}`, 404)
+    const project = await this.getByNumId(num_id)
+    if (!project) throw new AppError(`No project found with id ${num_id}`, 404)
 
     // 2) Create new classification object
     await Classification.create({
@@ -105,10 +105,10 @@ exports.addCategory = async (cwid, data) => {
 //
 // Add a MTRL score to a project
 //
-exports.addMTRLScore = async (cwid, data) => {
+exports.addMTRLScore = async (num_id, data) => {
     // 1) Get the corresponding project
-    const project = await this.getByCWId(cwid)
-    if (!project) throw new AppError(`No project found with id ${cwid}`, 404)
+    const project = await this.getByNumId(num_id)
+    if (!project) throw new AppError(`No project found with id ${num_id}`, 404)
 
     // 2) Create new score object
     await MTRLScore.create({

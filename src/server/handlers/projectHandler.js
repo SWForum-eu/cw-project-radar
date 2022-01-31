@@ -59,8 +59,8 @@ exports.deleteProject = handlerFactory.deleteOne(Project)
 
 exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!
-    const cwid = req.params.id
-    if (!cwid || isNaN(cwid)) {
+    const num_id = req.params.id
+    if (!num_id || isNaN(num_id)) {
         throw new AppError('Missing or non-number cyberwatching id in request.', 400)
     }
 
@@ -74,7 +74,7 @@ exports.updateProject = catchAsync(async (req, res, next) => {
     ])
 
     // 3) go straight to Project Model to update
-    const project = await Project.findOneAndUpdate({ cw_id: cwid }, doc, {
+    const project = await Project.findOneAndUpdate({ num_id: num_id }, doc, {
         new: true,
         runValidators: true,
     })
@@ -108,7 +108,7 @@ exports.getByCWId = catchAsync(async (req, res, next) => {
     addClassifications = req.query.class
 
     // fetch or find project
-    const project = await projectController.getByCWId(
+    const project = await projectController.getByNumId(
         req.params.cwid,
         addScores,
         addClassifications
