@@ -50,7 +50,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 //
 exports.showMain = catchAsync(async (req, res, next) => {
     // 1) Fetch some key figures from the DB
-    const kpis = (
+    let kpis = (
         await Project.aggregate([
             {
                 $group: {
@@ -64,10 +64,19 @@ exports.showMain = catchAsync(async (req, res, next) => {
             },
         ])
     )[0]
-    kpis.calls = kpis.calls.length // reduce calls array to its length
-    kpis.span = moment(kpis.end).diff(kpis.start, 'months') + 1 // reduce start and end to months
-    kpis.span = roundDec(kpis.span / 12, 1) // in years, with one decimal
-    kpis.totalCost = roundDec(kpis.totalCost / 1000000000, 1) // budget in €bn
+    if (kpis) {
+        kpis.span = moment(kpis.end).diff(kpis.start, 'months') + 1 // reduce start and end to months
+        kpis.span = roundDec(kpis.span / 12, 1) // in years, with one decimal
+        kpis.calls = kpis.calls.length // reduce calls array to its length
+        kpis.totalCost = roundDec(kpis.totalCost / 1000000000, 1) // budget in €bn
+    } else {
+        kpis = {
+            span: 0,
+            calls: 0,
+            projects: 0,
+            totalCost: 0.0
+        }
+    }
 
     // TODO expand on default content.
     res.status(200).render('main', {

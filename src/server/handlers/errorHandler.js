@@ -18,20 +18,21 @@ const handleValidationErrorDB = (err) => {
 const sendErrorDev = (err, req, res) => {
     // A) API
     if (req.originalUrl.startsWith('/api')) {
-        logger.error(`ERROR 💥 ${err.stack}`)
+        logger.error(`ERROR 💥 ${err}`)
+        logger.error(err.stack)
         return res.status(err.statusCode).json({
             status: err.status,
-            error: err,
-            message: err.message,
+            code: err.statusCode,
             stack: err.stack,
         })
     }
 
     // B) RENDERED WEBSITE
     logger.error(`ERROR 💥 ${err}`)
+    logger.error(err.stack)
     return res.status(err.statusCode).render('error', {
         title: 'Something went wrong!',
-        msg: err.message,
+        err
     })
 }
 
