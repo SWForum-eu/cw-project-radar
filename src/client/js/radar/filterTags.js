@@ -5,11 +5,15 @@
 // libraries
 // modules
 // app modules
-import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
+// import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
 import { getStatsActive, getTags, updateTags } from '../util/localStore'
 import { any, all, partition } from '../util/nodeFilter'
-import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
+// import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
 import { fetchStats } from '../radar/asyncRendering'
+
+import { acmCCS, getName } from '../../../common/datamodel/acm-ccs'
+import acmTaxonomyTemplate from '../../views/acmTaxonomyTemplate'
+
 
 //
 // EXPORTS
@@ -103,7 +107,7 @@ const showFilterTagForm = async () => {
     // compile HTML from the template
     const modalString = jrctaxonomyfiltermodalTemplate({
         modalID: 'filterTags',
-        header: 'Filter by JRC Cybersecurity taxonomy terms',
+        header: 'Filter by ACM Computing Classification System',
         jrcTaxonomy,
         filterTags: filter,
         okButtonLabel: 'Apply',

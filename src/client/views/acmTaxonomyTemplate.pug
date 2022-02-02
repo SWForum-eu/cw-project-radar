@@ -1,0 +1,24 @@
+extends _okCancelModal
+
+mixin acmDimension(dimension)
+    ul: li
+        - if (filterTags.tags.includes(dimension.tag))
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
+        - else 
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
+        label(for=dimension.tag)= dimension.name
+        li: ul
+            each term in dimension.terms
+                li 
+                    - if (filterTags.tags.includes(term.tag))
+                        input.term(type='checkbox', name=term.tag, value=term.tag, checked)
+                    - else 
+                        input.term(type='checkbox', name=term.tag, value=term.tag)
+                    label(for=term.tag)= term.name
+
+block content
+    .filtertags-form: form.form.form--filter-tags#filter-tags-form
+        +jrcDimension(acmCCS.hardware)
+
+block append buttons
+    button#modalClearAll #{clearButtonLabel}

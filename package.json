@@ -25,7 +25,7 @@
         "test": "jest"
     },
     "keywords": [
-        "cyberwatching.eu",
+        "swforum.eu",
         "project",
         "radar",
         "EC",
@@ -35,7 +35,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/micheldrescher/cw-project-radar.git"
+        "url": "https://github.com/SWForum-eu/swforum-radar.git"
     },
     "dependencies": {
         "@fast-csv/parse": "^4.3.6",
