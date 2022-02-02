@@ -47,7 +47,7 @@ block content
         .form__group
             input#projectid.form__input(type='hidden', required, value=project._id)
         .form__group
-            input#project_cwid.form__input(type='hidden', required, value=project.num_id)
+            input#project_numid.form__input(type='hidden', required, value=project.num_id)
         .form__group
             label.form__label(for='acronym') Acronym
             input#acronym.form__input(type='string', required, value=project.acronym)
@@ -102,7 +102,7 @@ block content
 
     .addscore-form: form.form.form--add-score#add-score-form
         .form__group
-            input#cwid.form__input(type='hidden', required, value=project.num_id)
+            input#numid.form__input(type='hidden', required, value=project.num_id)
         .form__group
             label.form__label(for="mrl") MRL
             select#mrl(name="mrl")
@@ -133,7 +133,7 @@ block content
     
     .addcategory-form: form.form.form--add-category#add-category-form
         .form__group
-            input#cwid.form__input(type='hidden', required, value=project.swf_id)
+            input#numid.form__input(type='hidden', required, value=project.swf_id)
         .form__group
             label.form__label(for="classification") Category
             select#classification(name="classification")
