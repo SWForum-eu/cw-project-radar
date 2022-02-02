@@ -503,7 +503,7 @@ if (editProjectForm) {
         event.preventDefault()
         const values = {
             id: document.getElementById('projectid').value,
-            cw_id: document.getElementById('project_cwid').value,
+            num_id: document.getElementById('project_numid').value,
             acronym: document.getElementById('acronym').value,
             rcn: document.getElementById('rcn').value,
             title: document.getElementById('title').value,
@@ -541,11 +541,11 @@ const addCategoryForm = document.getElementById('add-category-form')
 if (addCategoryForm) {
     addCategoryForm.addEventListener('submit', async (event) => {
         event.preventDefault()
-        const cw_id = document.getElementById('cwid').value
+        const num_id = document.getElementById('numid').value
         const classification = document.getElementById('classification').value
         const classifiedBy = 'Cyberwatching' // for now this is hardcoded when using the web UI
         const changeSummary = document.getElementById('changeSummary').value
-        addClassification(cw_id, classification, classifiedBy, changeSummary)
+        addClassification(num_id, classification, classifiedBy, changeSummary)
     })
 }
 
@@ -556,12 +556,12 @@ const addScoreForm = document.getElementById('add-score-form')
 if (addScoreForm) {
     addScoreForm.addEventListener('submit', async (event) => {
         event.preventDefault()
-        const cw_id = document.getElementById('cwid').value
+        const num_id = document.getElementById('numid').value
         const mrl = document.getElementById('mrl').value
         const trl = document.getElementById('trl').value
         const scoringDate = document.getElementById('scoringdate').value
         const description = document.getElementById('scoreDescription').value
-        addScore(cw_id, mrl, trl, scoringDate, description)
+        addScore(num_id, mrl, trl, scoringDate, description)
     })
 }
 

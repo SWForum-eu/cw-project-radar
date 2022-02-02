@@ -120,7 +120,7 @@ const updateProject = async (prjData) => {
         if (res.data.status === 'success') {
             showAlert('success', 'Project updated.')
             window.setTimeout(() => {
-                location.assign('/admin/project')
+                location.assign(location.href)
             }, 1500)
         }
     } catch (err) {
