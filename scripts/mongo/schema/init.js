@@ -2,6 +2,7 @@ const conn = new Mongo()
 const db = conn.getDB('swforum-radar')
 
 db.sequences.insert({ _id: 'project', seq: 0 })
+db.sequences.insert({ _id: 'radar', seq: 0 })
 
 db.users.insert({
     name: 'admin',

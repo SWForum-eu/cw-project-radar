@@ -108,26 +108,25 @@ const calculateRing = (project, radarDate) => {
 //
 // transform the ugly data "structure" into a RadarData entity (just as ugly)
 const createRadarData = (data) => {
-    const radarData = new RadarData({})
-    radarData.data = new Map()
+    const radarData = new Map()
     for (const [segKey, segMap] of data.entries()) {
         const segDataMap = new Map()
         for (const [ringKey, entries] of segMap.entries()) {
             const stats = calculateStatistics(entries)
             const ringData = []
-            entries.forEach((e) => {
-                const blip = new Blip({
-                    project: e.prj._id,
-                    tags: e.prj.tags,
-                    cw_id: e.prj.cw_id, // temporary
-                    prj_acronym: e.prj.acronym, // temporary
+            entries.forEach((entry) => {
+                const blip = {
+                    project: entry.prj._id,
+                    tags: entry.prj.tags,
+                    cw_id: entry.prj.cw_id, // temporary
+                    prj_acronym: entry.prj.acronym, // temporary
                     segment: segKey, // temporary
                     ring: ringKey, // temporary
-                })
-                if (e.score) {
-                    blip.trl = e.score.trl
-                    blip.mrl = e.score.mrl
-                    blip.score = e.score.score
+                }
+                if (entry.score) {
+                    blip.trl = entry.score.trl
+                    blip.mrl = entry.score.mrl
+                    blip.score = entry.score.score
                     blip.median = stats.median
                     blip.performance = blip.score - blip.median
                     blip.min = stats.min
@@ -137,7 +136,7 @@ const createRadarData = (data) => {
             })
             segDataMap.set(ringKey, ringData)
         }
-        radarData.data.set(segKey, segDataMap)
+        radarData.set(segKey, segDataMap)
     }
 
     return radarData
