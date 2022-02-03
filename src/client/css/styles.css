@@ -430,6 +430,11 @@ svg g line {
     stroke-width: 5;
 }
 
+svg g line.sub {
+    stroke-width: 1;
+    stroke-dasharray: 10, 10;
+}
+
 /*
  * Radar tables
  */
