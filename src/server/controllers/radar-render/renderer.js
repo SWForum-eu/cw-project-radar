@@ -42,12 +42,12 @@ const plotRadar = (root, data) => {
     // 1) calculate some base values
     // 56 = width of segment name, 2 = thickness of ring stroke
     const radius = (size - 2) / 2 - 56
-    const numSegs = data.data.size
-    const numRings = data.data.values().next().value.size
+    const numSegs = data.size
+    const numRings = data.values().next().value.size
     const angles = calcAngles(numSegs)
     const radii = equiSpatialRadii(numSegs, numRings, radius)
 
-    plotSegments(root, data.data, angles, radii)
+    plotSegments(root, data, angles, radii)
 }
 
 // plot each segment
