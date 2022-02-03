@@ -18,7 +18,16 @@ mixin acmDimension(dimension)
 
 block content
     .filtertags-form: form.form.form--filter-tags#filter-tags-form
-        +jrcDimension(acmCCS.hardware)
+        +acmDimension(acmCCS.computerSystems)
+        +acmDimension(acmCCS.softwareEngineering)
+        +acmDimension(acmCCS.computationTheory)
+        +acmDimension(acmCCS.computingMath)
+        +acmDimension(acmCCS.infoSystems)
+        +acmDimension(acmCCS.securityPrivacy)
+        +acmDimension(acmCCS.humanComputing)
+        +acmDimension(acmCCS.computingmethods)
+        +acmDimension(acmCCS.networks)
+        +acmDimension(acmCCS.appliedComputing)
 
 block append buttons
     button#modalClearAll #{clearButtonLabel}

@@ -105,10 +105,10 @@ const showFilterTagForm = async () => {
     // get filter tags
     const filter = await getTags()
     // compile HTML from the template
-    const modalString = jrctaxonomyfiltermodalTemplate({
+    const modalString = acmTaxonomyTemplate({
         modalID: 'filterTags',
         header: 'Filter by ACM Computing Classification System',
-        jrcTaxonomy,
+        acmCCS,
         filterTags: filter,
         okButtonLabel: 'Apply',
         cancelButtonLabel: 'Cancel',
