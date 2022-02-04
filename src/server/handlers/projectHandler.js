@@ -89,10 +89,10 @@ exports.updateProject = catchAsync(async (req, res, next) => {
     })
 })
 
-exports.getByCWId = catchAsync(async (req, res, next) => {
+exports.getByNumId = catchAsync(async (req, res, next) => {
     // cwid  checking
-    if (!req.params.cwid || isNaN(req.params.cwid)) {
-        throw new AppError('Missing or non-number cwid in request.', 400)
+    if (!req.params.num_id || isNaN(req.params.num_id)) {
+        throw new AppError('Missing or non-number num_id in request.', 400)
     }
     // scores param checking
     let addScores
@@ -109,7 +109,7 @@ exports.getByCWId = catchAsync(async (req, res, next) => {
 
     // fetch or find project
     const project = await projectController.getByNumId(
-        req.params.cwid,
+        req.params.num_id,
         addScores,
         addClassifications
     )

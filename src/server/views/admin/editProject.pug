@@ -1,10 +1,6 @@
 extends ../structure/_base
 
 
-//- mixin action(actionClass, label, route, imageStr)
-//-     a(route=route, class=actionClass, style="cursor: pointer; margin: 0 2px;")
-//-         img(width=16, alt=label, src=imageStr)
-
 mixin classificationRow(classification)
     -function prettyDate(date) {
         -var d = date.getDate(date);
@@ -39,6 +35,10 @@ mixin mtrlScoreRow(score)
 mixin scaleOptions()
     each val in [1, 2, 3, 4, 5, 6, 7, 8, 9]
         option(value=val)= val
+
+mixin classificationOptions()
+    each val in process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
+        option(value=val)= val 
 
 block content
 
@@ -137,12 +137,9 @@ block content
         .form__group
             label.form__label(for="classification") Category
             select#classification(name="classification")
-                option(value="Secure Systems")= "Secure Systems"
-                option(value="Verification & Assurance")= "Verification & Assurance"
-                option(value="Operational Risk")= "Operational Risk"
-                option(value="Identity & Privacy")= "Identity & Privacy"
-                option(value="Cybersecurity Governance")= "Cybersecurity Governance"
-                option(value="Human Aspects")= "Human Aspects"
+                +classificationOptions()
+        //- Add a secondary classification form group, similar to the first
+        //- Probably best to have the options compiled dynamically using the .env var
         .form__group
             label.form__label(for='changeSummary') Reason
             input#changeSummary.form__input(type='string', required)
