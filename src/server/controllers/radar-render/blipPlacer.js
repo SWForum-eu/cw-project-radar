@@ -24,9 +24,10 @@ const gradients = process.env.GRADIENTS.split(',') || [
 const placeBlips = (blips, root, segIdx, ringIdx, geom) => {
     // 1) Create a random number generator
     const chance = new Chance(Math.PI)
+    console.log(blips)
 
     // 2) Iterate through all blips (projects) and add to ring
-    blips.sort((a, b) => a.cw_id - b.cw_id)
+    blips.sort((a, b) => a.num_id - b.num_id)
     const blipCoords = []
     blips.forEach((blip) => {
         // 2.1 - add the blip to the table
@@ -45,9 +46,9 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
     ringList
         .append('li')
         .append('div')
-        .attr('id', `table-${blip.cw_id}`)
-        .attr('data-blip-id', `blip-${blip.cw_id}`)
-        .text(`${blip.cw_id}. ${blip.prj_acronym}`)
+        .attr('id', `table-${blip.num_id}`)
+        .attr('data-blip-id', `blip-${blip.num_id}`)
+        .text(`${blip.num_id}. ${blip.prj_acronym}`)
 }
 
 const findBlipCoords = (blip, geom, allCoords, chance) => {
@@ -129,13 +130,13 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .select(`g.segment.segment-${segIdx}`)
         .append('g')
         .attr('class', 'blip')
-        .attr('id', `blip-${blip.cw_id}`)
+        .attr('id', `blip-${blip.num_id}`)
         .attr('transform', `translate(${x}, ${y})`)
-        .attr('data-tooltip', `${blip.cw_id}. ${blip.prj_acronym}`)
-        .attr('data-cw-id', blip.cw_id)
+        .attr('data-tooltip', `${blip.num_id}. ${blip.prj_acronym}`)
+        .attr('data-num-id', blip.num_id)
         .attr('data-segment', blip.segment)
         .attr('data-ring', blip.ring)
-        .attr('data-table-id', `table-${blip.cw_id}`)
+        .attr('data-table-id', `table-${blip.num_id}`)
         .attr(
             'data-performance',
             JSON.stringify({
@@ -166,7 +167,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('dominant-baseline', 'central')
         .style('font-weight', '700')
         .style('pointer-events', 'none')
-        .text(blip.cw_id)
+        .text(blip.num_id)
 }
 
 const arcColour = (blip) => {

@@ -19,8 +19,8 @@ const router = express.Router()
 /*   PUBLIC ROUTES   */
 /*                   */
 /*********************/
-// get project by Cyberwatching ID
-router.get('/prj_id/:cwid', handler.getByCWId)
+// get project by Numerical ID
+router.get('/prj_id/:num_id', handler.getByNumId)
 router.get('/rcn/:rcn', handler.getByRCN)
 router.post('/match', handler.getMatchingProjects)
 router.post('/search', sanitiser.scrubEmpty, handler.findProjects)

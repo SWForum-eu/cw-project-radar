@@ -118,7 +118,7 @@ const createRadarData = (data) => {
                 const blip = {
                     project: entry.prj._id,
                     tags: entry.prj.tags,
-                    cw_id: entry.prj.cw_id, // temporary
+                    num_id: entry.prj.num_id, // temporary
                     prj_acronym: entry.prj.acronym, // temporary
                     segment: segKey, // temporary
                     ring: ringKey, // temporary

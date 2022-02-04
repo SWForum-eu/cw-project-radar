@@ -11,9 +11,9 @@ import projectinfoTemplate from './../../views/projectInfo'
 // eslint-disable-next-line node/no-unpublished-import
 import scoreGraphTemplate from './../../views/scoreGraph'
 
-const showProjectData = async (cw_id, segment, ring, perf, tags) => {
+const showProjectData = async (num_id, segment, ring, perf, tags) => {
     // fetch project info
-    const response = await (await axios.get(`/api/v1/project/prj_id/${cw_id}?scores=all`)).data
+    const response = await (await axios.get(`/api/v1/project/prj_id/${num_id}?scores=all`)).data
     // TODO add error message to footer in red
 
     const model = await getModel()
