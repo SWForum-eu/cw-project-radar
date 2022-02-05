@@ -543,9 +543,10 @@ if (addCategoryForm) {
         event.preventDefault()
         const num_id = document.getElementById('numid').value
         const classification = document.getElementById('classification').value
-        const classifiedBy = 'Cyberwatching' // for now this is hardcoded when using the web UI
+        const classification_2nd = document.getElementById('classification_2nd').value
+        const classifiedBy = 'SWForum' // for now this is hardcoded when using the web UI
         const changeSummary = document.getElementById('changeSummary').value
-        addClassification(num_id, classification, classifiedBy, changeSummary)
+        addClassification(num_id, classification, classification_2nd, classifiedBy, changeSummary)
     })
 }
 

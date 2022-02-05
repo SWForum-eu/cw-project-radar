@@ -21,7 +21,11 @@ const classificationSchema = new mongoose.Schema(
         classification: {
             type: String,
             required: true,
-            validate: v => segments.includes(v)
+            validate: c => segments.includes(c)
+        },
+        secondary_classification: {
+            type: String,
+            validator: c => segments.includes(c) && c != this.classification
         },
         // which project was classified?
         project: {
@@ -39,9 +43,9 @@ const classificationSchema = new mongoose.Schema(
         classifiedBy: {
             type: String,
             required: true,
-            default: 'Cyberwatching',
+            default: 'SWForum',
             enum: {
-                values: ['Cyberwatching', 'Project']
+                values: ['SWForum', 'Project']
             }
         },
         // what is the reason for this classification (or the update)
