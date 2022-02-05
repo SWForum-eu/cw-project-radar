@@ -143,6 +143,7 @@ block content
         .form__group
             label.form__label(for="classification_2nd") 2nd Category
             select#classification_2nd(name="classification_2nd")
+                option(value='')= "- no secondary classification -"
                 +classificationOptions()
         .form__group
             label.form__label(for='changeSummary') Reason
