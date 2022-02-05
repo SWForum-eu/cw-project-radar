@@ -25,14 +25,9 @@ class RadarCoordinates extends HTMLElement {
 
     tpl = `
 <div class="name">Segment:</div><div class="value"><slot name="segment"></slot></div>
+<div class="name">Aspect:</div><div class="value"><slot name="segment2"></slot></div>
 <div class="name">Ring:</div><div class="value"><slot name="ring"></slot></div>
 `
-    //
-    // <div id="radar-position">
-    //     <div class="name">Segment:</div><div class="value">Secure Systems</div>
-    //     <div class="name">Ring:</div><div class="value">Hold</div>
-    // </div>
-    //
 
     constructor() {
         super()
