@@ -70,6 +70,8 @@ const mapProjectsToData = async (projects, data, cutOffDate) => {
             )
             segment = segment.classification
             const ring = calculateRing(prj, cutOffDate)
+
+            console.log(segment, ring)
             // If the project has a score, fetch and add the score too as we need that later anyway.
             let score = undefined
             if (prj.hasScores) {
@@ -90,8 +92,8 @@ const mapProjectsToData = async (projects, data, cutOffDate) => {
 const calculateRing = (project, radarDate) => {
     let testDate = radarDate.clone()
 
-    testDate.subtract(2, 'years')
-    if (project.endDate < testDate.toDate()) return rings[4] // Drop
+    // testDate.subtract(2, 'years')
+    // if (project.endDate < testDate.toDate()) return rings[4] // Drop
 
     testDate.add(1, 'years')
     if (project.endDate < testDate.toDate()) return rings[3] // Hold
