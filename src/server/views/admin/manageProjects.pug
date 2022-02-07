@@ -23,6 +23,7 @@ mixin projectRow(project)
         td #{prettyDate(project.startDate)}
         td #{prettyDate(project.endDate)}
         td #{project.classification}
+        td #{project.secondary_classification}
         td #{prettyMTRL(project.mtrl)}
         td
             +action('edit-project', `Edit ${project.acronym}`, `/admin/project/edit/${project._id}`, 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ItCh0LvQvtC5XzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwMHB4IiBoZWlnaHQ9IjEwMDBweCIgdmlld0JveD0iMCAwIDEwMDAgMTAwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwMCAxMDAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGQ9Ik05NjguMTYxLDMxLjgzOWMzNi40NTYsMzYuNDU2LDM2LjM5Niw5NS41NDcsMCwxMzIuMDAzbC00My45OTEsNDMuOTkxTDc5Mi4xMzgsNzUuODNsNDMuOTkxLTQzLjk5MQ0KCUM4NzIuNTgzLTQuNTg2LDkzMS43MDQtNC42MTcsOTY4LjE2MSwzMS44Mzl6IE0zMDguMjM4LDU1OS43OWwtNDMuOTYsMTc1Ljk2M2wxNzUuOTYzLTQzLjk5MWw0MzkuOTM4LTQzOS45MzhMNzQ4LjE0NywxMTkuODIxDQoJTDMwOC4yMzgsNTU5Ljc5eiBNNzQ2LjYyNyw0NzMuMzg3djQwMi4xNzVIMTI0LjQzOFYyNTMuMzczaDQwMi4yMDRsMTI0LjQwNy0xMjQuNDM4SDBWMTAwMGg4NzEuMDY0VjM0OC45MThMNzQ2LjYyNyw0NzMuMzg3eiIvPg0KPC9zdmc+DQo=')
@@ -105,6 +106,7 @@ block content
                 td Start date
                 td End date
                 td Classification
+                td 2nd Classification
                 td Last score
                 td Actions
         each p in projects

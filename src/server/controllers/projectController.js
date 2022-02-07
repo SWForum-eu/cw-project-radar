@@ -90,6 +90,7 @@ exports.addCategory = async (num_id, data) => {
     // 2) Create new classification object
     await Classification.create({
         classification: data.classification,
+        secondary_classification: data.classification_2nd,
         project: project._id,
         classifiedOn: data.classifiedOn,
         classifiedBy: data.classifiedBy,

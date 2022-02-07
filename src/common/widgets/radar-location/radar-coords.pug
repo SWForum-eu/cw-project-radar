@@ -1,4 +1,6 @@
-mixin radar-coords(segment, ring)
+mixin radar-coords(segment, segment2, ring)
     radar-coords
         span(slot='segment')= segment
+        - if (segment2)
+            span(slot='segment2')= segment2
         span(slot='ring')= ring

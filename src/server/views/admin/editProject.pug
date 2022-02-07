@@ -12,6 +12,7 @@ mixin classificationRow(classification)
     tr
         td #{prettyDate(classification.classifiedOn)}
         td #{classification.classification}
+        td #{classification.secondary_classification}
         td #{classification.classifiedBy}
         td #{classification.changeSummary}
 
@@ -126,6 +127,7 @@ block content
             tr
                 td When
                 td Classification
+                td 2nd classification
                 td By
                 td Reason
         each c in classifications
@@ -138,8 +140,11 @@ block content
             label.form__label(for="classification") Category
             select#classification(name="classification")
                 +classificationOptions()
-        //- Add a secondary classification form group, similar to the first
-        //- Probably best to have the options compiled dynamically using the .env var
+        .form__group
+            label.form__label(for="classification_2nd") 2nd Category
+            select#classification_2nd(name="classification_2nd")
+                option(value='')= "- no secondary classification -"
+                +classificationOptions()
         .form__group
             label.form__label(for='changeSummary') Reason
             input#changeSummary.form__input(type='string', required)

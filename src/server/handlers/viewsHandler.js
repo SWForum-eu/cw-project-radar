@@ -247,7 +247,7 @@ exports.editRadar = catchAsync(async (req, res, next) => {
 //
 exports.manageProjects = catchAsync(async (req, res, next) => {
     // 1) Fetch all Projects
-    const projects = await new APIFeatures(Project.find(), { sort: 'cw_id' }).filter().sort().query
+    const projects = await new APIFeatures(Project.find(), { sort: 'num_id' }).filter().sort().query
     if (!projects) {
         return next(new AppError(`No proejcts found AT ALL in this application.`, 404))
     }
@@ -259,6 +259,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
             if (prj.hasClassifications) {
                 let segment = await classificationController.getClassification(prj._id, Date.now())
                 prj.classification = segment.classification
+                prj.secondary_classification = segment.secondary_classification
             }
             // add MTRL score
             if (prj.hasScores) {
