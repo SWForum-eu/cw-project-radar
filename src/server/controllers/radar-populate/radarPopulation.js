@@ -49,7 +49,6 @@ exports.compileRadarPopulation = async (cutOffDate) => {
 
     // 3) Map all projects into the "data" structure.
     await mapProjectsToData(projects, data, cutOffDate)
-
     // 4) Create a RadarData object from this data structure of the 90's called "data"
     const radarData = createRadarData(data)
 
@@ -68,6 +67,9 @@ const mapProjectsToData = async (projects, data, cutOffDate) => {
                 prj._id,
                 cutOffDate.toDate()
             )
+            // push the secondary segment into the project, to calculate the sub-secment in the rendering phase
+            prj.segment_2 = segment.secondary_classification
+            // set the main segment as mefore
             segment = segment.classification
             const ring = calculateRing(prj, cutOffDate)
             // If the project has a score, fetch and add the score too as we need that later anyway.
@@ -121,6 +123,7 @@ const createRadarData = (data) => {
                     num_id: entry.prj.num_id, // temporary
                     prj_acronym: entry.prj.acronym, // temporary
                     segment: segKey, // temporary
+                    segment_2: entry.prj.segment_2,
                     ring: ringKey, // temporary
                 }
                 if (entry.score) {
