@@ -77,7 +77,7 @@ const linkupEntries = (ringTable) => {
             e.stopPropagation()
             const dataSet = document.getElementById(e.target.dataset.blipId).dataset
             showProjectData(
-                dataSet.cwId,
+                dataSet.numId,
                 dataSet.segment,
                 dataSet.ring,
                 JSON.parse(dataSet.performance),

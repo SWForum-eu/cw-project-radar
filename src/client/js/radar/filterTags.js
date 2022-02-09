@@ -61,7 +61,7 @@ const filterBlips = async (userFilter, forced = false) => {
 //
 // Given the list of tags, update the filter UI with the actual term names
 const updateFilterList = async (filter, getNameFunc) => {
-    const filterNode = document.getElementById('jrctagsfilter')
+    const filterNode = document.getElementById('acmtagsfilter')
     // 1) Update filter operation
     const anyRadio = filterNode.childNodes[1].childNodes[2]
     const allRadio = filterNode.childNodes[1].childNodes[3]

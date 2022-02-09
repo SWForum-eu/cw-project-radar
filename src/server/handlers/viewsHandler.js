@@ -16,8 +16,9 @@ const { roundDec } = require('../../common/util/maths')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
-const { jrcTaxonomy } = require('./../../common/datamodel/jrc-taxonomy')
-const { validCwId } = require('../utils/validator')
+// const { jrcTaxonomy } = require('./../../common/datamodel/jrc-taxonomy')
+const { acmCCS } = require('./../../common/datamodel/acm-ccs')
+const { validSwId } = require('../utils/validator')
 
 //
 // MIDDLEWARE
@@ -106,7 +107,7 @@ exports.showRadar = catchAsync(async (req, res, next) => {
         title: radar.name,
         pageclass,
         radar,
-        jrcTaxonomy,
+        acmCCS,
     })
 })
 
@@ -300,7 +301,7 @@ exports.editProject = catchAsync(async (req, res, next) => {
         project,
         classifications,
         mtrlScores,
-        jrcTaxonomy,
+        acmCCS,
     })
 })
 
@@ -314,11 +315,11 @@ exports.editProject = catchAsync(async (req, res, next) => {
 //
 exports.getProjectWidget = catchAsync(async (req, res, next) => {
     // 1) Check parameters
-    if (req.params.cwid && !validCwId(req.params.cwid)) throw new AppError('Invalid project CW id.')
+    if (req.params.numid && !validSwId(req.params.numid)) throw new AppError('Invalid project CW id.')
 
     // 2) Get the latest MTRL submission for the given project
     const data = await Project.aggregate()
-        .match({ cw_id: { $eq: Number(req.params.cwid) } })
+        .match({ cw_id: { $eq: Number(req.params.numid) } })
         .lookup({
             from: 'mtrlscores',
             let: { prjID: '$_id' },
@@ -331,7 +332,7 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
         })
         .exec()
     if (!data || data.length < 1)
-        throw new AppError(`No data found for widget for project no. ${req.params.cwid}`)
+        throw new AppError(`No data found for widget for project no. ${req.params.numid}`)
 
     // 3) Render the widget
     res.status(200).render('widgets/project.pug', {

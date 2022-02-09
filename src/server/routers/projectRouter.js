@@ -51,14 +51,14 @@ router
     .delete(handler.deleteProject)
 // This is BY CW ID!!
 router.post(
-    '/:cwid/categorise',
+    '/:numid/categorise',
     authC.restrictTo('admin', 'manager'),
     sanitiser.scrubEmpty,
     handler.addCategory
 )
 // This is BY CW ID!!
 router.post(
-    '/:cwid/score',
+    '/:numid/score',
     authC.restrictTo('admin', 'manager'),
     sanitiser.scrubEmpty,
     handler.addMTRLScore

@@ -30,7 +30,7 @@ const validLogLevel = (level) => {
 }
 
 //
-// validate scores config param for getProjectByCWID
+// validate scores config param for getProjectBySWID
 //
 const validScoresParam = (scores) => {
     // empty, null, or undefined
@@ -44,7 +44,7 @@ const validScoresParam = (scores) => {
 }
 
 //
-// validate classification config param for getProejctByCWID
+// validate classification config param for getProejctBySWID
 //
 const validClassificationParam = (classification) => {
     // empty, null, or undefined
@@ -67,7 +67,7 @@ const validSlug = (s) => {
 //
 // validates CW Ids
 //
-const validCwId = (id) => {
+const validSwId = (id) => {
     return !id ? false : id.match(/(^\d+$)/) != null
 }
 
@@ -75,7 +75,7 @@ const validProjectIDs = (prjs) => {
     if (!prjs) return false
 
     prjs.split(',').forEach((p) => {
-        if (!validCwId(p)) return false
+        if (!validSwId(p)) return false
     })
 
     return true
@@ -86,7 +86,7 @@ const validProjectIDs = (prjs) => {
 //
 module.exports = {
     validSlug,
-    validCwId,
+    validSwId,
     validUsername,
     validLogLevel,
     validScoresParam,
