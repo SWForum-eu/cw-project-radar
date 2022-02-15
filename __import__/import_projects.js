@@ -128,7 +128,7 @@ const createProjects = (data) => {
     data.map(async (prj) => {
         const project = new Project({
             acronym: prj.name,
-            cw_id: prj.cw_id,
+            num_id: prj.num_id,
             rcn: prj.rcn,
             call: prj.call,
             type: prj.type,

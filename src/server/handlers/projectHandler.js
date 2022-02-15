@@ -49,7 +49,7 @@ exports.importProjects = catchAsync(async (req, res, next) => {
 
 exports.createProject = handlerFactory.createOne(
     Project,
-    'cw_id',
+    'num_id',
     'hasClassifications',
     'hasScores'
 )
@@ -66,7 +66,7 @@ exports.updateProject = catchAsync(async (req, res, next) => {
 
     // 2) Filter out disallowed fields from the request body
     const doc = handlerFactory.filterFields(req.body, [
-        'cw_id',
+        'num_id',
         'hasClassifications',
         'hasScores',
         'classification',
