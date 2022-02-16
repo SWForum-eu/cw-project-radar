@@ -147,6 +147,7 @@ const wireupButtons = (filter) => {
 
         // update the UI & filter projects
         // TODO how can I make this generic the JRC is currently hardcoded!
+        // not entirely sure what this means - Rohan
         await updateFilterList(filter, getName)
         await filterBlips(filter, true) // force an update (for empty filter lists)
         await fetchStats(await getStatsActive())
