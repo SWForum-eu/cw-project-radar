@@ -93,8 +93,76 @@ block content
         .form__group
             label.form__label(for='swprojecthublink') CW ProjectHUB link
             input#swprojecthublink.form__input(type='string', placeholder='https://https://swforum.eu/project-hub')
+        
+
+
+
+    p
+
+    h2 Add MTRL Score
+    .addscore-form: form.form.form--add-score#add-score-form
+        .form__group
+            input#numid.form__input(type='hidden', required, value=project.num_id)
+        .form__group
+            label.form__label(for="mrl") MRL
+            select#mrl(name="mrl")
+                +scaleOptions()
+        .form__group
+            label.form__label(for="trl") TRL
+            select#trl(name="trl")
+                +scaleOptions()
+        .form__group
+            label.form__label(for="scoringDate") Scored on
+            input#scoringdate.form__input(type="date")
+        .form__group
+            label.form__label(for="scoreDescription") Description
+            textarea#scoreDescription.form__input(type='string', cols="70", rows="10")
+        //- .form__group
+        //-     button.btn#btn--add-score Add Scores
+
+
+    P
+
+    h2 Add Project Classifications
+    .addcategory-form: form.form.form--add-category#add-category-form
+        .form__group
+            input#numid.form__input(type='hidden', required, value=project.swf_id)
+        .form__group
+            label.form__label(for="classification") Category
+            select#classification(name="classification")
+                +classificationOptions()
+        .form__group
+            label.form__label(for="classification_2nd") 2nd Category
+            select#classification_2nd(name="classification_2nd")
+                option(value='')= "- no secondary classification -"
+                +classificationOptions()
+        .form__group
+            label.form__label(for='changeSummary') Reason
+            input#changeSummary.form__input(type='string', required)
+        //- .form__group
+        //-     button.btn#btn--add-category Add Classifications
+
+
+    P
+
+    h2 Add Project Tags
+    .edittags-form: form.form.form--edit-tags#edit-tags-form
+        +acmDimension(acmCCS.computerSystems)
+        +acmDimension(acmCCS.softwareEngineering)
+        +acmDimension(acmCCS.computationTheory)
+        +acmDimension(acmCCS.computingMath)
+        +acmDimension(acmCCS.infoSystems)
+        +acmDimension(acmCCS.securityPrivacy)
+        +acmDimension(acmCCS.humanComputing)
+        +acmDimension(acmCCS.computingmethods)
+        +acmDimension(acmCCS.networks)
+        +acmDimension(acmCCS.appliedComputing)
+        //- .form__group
+        //-     button.btn#btn--edit-Tags Set tags
+
         .form__group
             button.btn#btn--create-project Save project
+    
 
     h2 Manage projects
     table

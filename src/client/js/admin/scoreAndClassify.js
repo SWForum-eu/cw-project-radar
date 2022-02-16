@@ -9,11 +9,11 @@ import showAlert from '../util/alert'
 //
 // add classification to a project
 //
-const addClassification = async (cw_id, classification, classification_2nd, classifiedBy, changeSummary) => {
+const addClassification = async (num_id, classification, classification_2nd, classifiedBy, changeSummary) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `/api/v1/project/${cw_id}/categorise`,
+            url: `/api/v1/project/${num_id}/categorise`,
             data: {
                 classification,
                 classification_2nd,
