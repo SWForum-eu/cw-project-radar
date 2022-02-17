@@ -464,7 +464,26 @@ if (newProjectForm) {
             fundingBodyLink: document.getElementById('fundingbodylink').value,
             cwurl: document.getElementById('swprojecthublink').value,
             teaser: document.getElementById('teaser').value,
+
+            // fetching MTRL Scores values from the form
+            mrl = document.getElementById('mrl').value,
+            trl = document.getElementById('trl').value,
+            scoringDate = document.getElementById('scoringdate').value,
+            description = document.getElementById('scoreDescription').value,
+
+            // fetching project classifications
+            classification = document.getElementById('classification').value,
+            classification_2nd = document.getElementById('classification_2nd').value,
+            classifiedBy = 'SWForum', // for now this is hardcoded when using the web UI
+        
+            // adding project tags
+            tags: []
         }
+
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
+            values.tags.push(c.value)
+        })
+
         await createProject(values)
     })
 }

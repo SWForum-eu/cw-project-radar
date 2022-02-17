@@ -1,7 +1,4 @@
-//
-// IMPORTS
-//
-// libraries
+
 import axios from 'axios'
 // app modules
 import showAlert from '../util/alert'

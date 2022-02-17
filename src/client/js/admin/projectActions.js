@@ -1,11 +1,8 @@
-//
-// IMPORTS
-//
-// libraries
+
 import axios from 'axios'
 // app modules
 import showAlert from '../util/alert'
-
+import {addClassification, addScore} from './admin/scoreAndClassify'
 //
 // create a new project
 //
@@ -24,6 +21,17 @@ const createProject = async (prjData) => {
             fundingBodyLink,
             cwurl,
             teaser,
+
+            mrl,
+            trl,
+            scoringDate,
+            description,
+
+            classification,
+            classification_2nd,
+            classifiedBy,
+
+            tags
         } = prjData
         const res = await axios({
             method: 'POST',
@@ -41,6 +49,7 @@ const createProject = async (prjData) => {
                 fundingBodyLink,
                 cwurl,
                 teaser,
+                tags
             },
         })
 
@@ -49,6 +58,12 @@ const createProject = async (prjData) => {
             window.setTimeout(() => {
                 location.assign('/admin/project')
             }, 1500)
+
+        const temp_id = res.data.num_id
+
+        addClassification(temp_id, classification, classification_2nd, classifiedBy, null)
+
+        addScore(temp_id, mrl, trl, scoringDate, description)
         }
     } catch (err) {
         showAlert('error', err.response.data.message)

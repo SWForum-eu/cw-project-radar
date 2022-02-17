@@ -94,15 +94,7 @@ block content
             label.form__label(for='swprojecthublink') CW ProjectHUB link
             input#swprojecthublink.form__input(type='string', placeholder='https://https://swforum.eu/project-hub')
         
-
-
-
-    p
-
-    h2 Add MTRL Score
-    .addscore-form: form.form.form--add-score#add-score-form
-        .form__group
-            input#numid.form__input(type='hidden', required, value=project.num_id)
+        //- scoring options 
         .form__group
             label.form__label(for="mrl") MRL
             select#mrl(name="mrl")
@@ -117,16 +109,11 @@ block content
         .form__group
             label.form__label(for="scoreDescription") Description
             textarea#scoreDescription.form__input(type='string', cols="70", rows="10")
+
+
+        //- classification options 
         //- .form__group
-        //-     button.btn#btn--add-score Add Scores
-
-
-    P
-
-    h2 Add Project Classifications
-    .addcategory-form: form.form.form--add-category#add-category-form
-        .form__group
-            input#numid.form__input(type='hidden', required, value=project.num_id)
+        //-     input#numid.form__input(type='hidden', required, value=project.num_id)
         .form__group
             label.form__label(for="classification") Category
             select#classification(name="classification")
@@ -136,17 +123,8 @@ block content
             select#classification_2nd(name="classification_2nd")
                 option(value='')= "- no secondary classification -"
                 +classificationOptions()
-        .form__group
-            label.form__label(for='changeSummary') Reason
-            input#changeSummary.form__input(type='string', required)
-        //- .form__group
-        //-     button.btn#btn--add-category Add Classifications
 
-
-    P
-
-    h2 Add Project Tags
-    .edittags-form: form.form.form--edit-tags#edit-tags-form
+        h2 Add Project Tags
         +acmDimension(acmCCS.computerSystems)
         +acmDimension(acmCCS.softwareEngineering)
         +acmDimension(acmCCS.computationTheory)
@@ -157,6 +135,35 @@ block content
         +acmDimension(acmCCS.computingmethods)
         +acmDimension(acmCCS.networks)
         +acmDimension(acmCCS.appliedComputing)
+
+    //- p
+
+    //- h2 Add MTRL Score
+    //- .addscore-form: form.form.form--add-score#add-score-form
+    //-     .form__group
+    //-         input#numid.form__input(type='hidden', required, value=project.num_id)
+        
+        //- .form__group
+        //-     button.btn#btn--add-score Add Scores
+
+
+    //- P
+
+    //- h2 Add Project Classifications
+    //- .addcategory-form: form.form.form--add-category#add-category-form
+        
+        //- .form__group
+        //-     label.form__label(for='changeSummary') Reason
+        //-     input#changeSummary.form__input(type='string', required)
+        //- .form__group
+        //-     button.btn#btn--add-category Add Classifications
+
+
+    //- P
+
+    //- h2 Add Project Tags
+    //- .edittags-form: form.form.form--edit-tags#edit-tags-form
+        
         //- .form__group
         //-     button.btn#btn--edit-Tags Set tags
 
