@@ -101,8 +101,11 @@ const calculateRing = (project, radarDate) => {
     testDate.add(1, 'years')
     if (project.endDate < testDate.toDate()) return rings[1] // Trial
 
-    testDate.add(1, 'years')
-    if (project.endDate < testDate.toDate()) return rings[2] // Assess
+    // testDate.add(1, 'years')
+    // if (project.endDate < testDate.toDate()) 
+    
+    else
+    return rings[2] // Assess
 
 }
 
