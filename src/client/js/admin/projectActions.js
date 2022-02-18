@@ -2,7 +2,7 @@
 import axios from 'axios'
 // app modules
 import showAlert from '../util/alert'
-import {addClassification, addScore} from './admin/scoreAndClassify'
+import {addClassification, addScore} from './scoreAndClassify'
 //
 // create a new project
 //
@@ -37,19 +37,23 @@ const createProject = async (prjData) => {
             method: 'POST',
             url: '/api/v1/project/',
             data: {
-                acronym,
-                rcn,
-                title,
-                startDate,
-                endDate,
-                call,
-                type,
-                totalCost,
-                url,
-                fundingBodyLink,
-                cwurl,
-                teaser,
-                tags
+                project: {
+                    acronym,
+                    rcn,
+                    title,
+                    startDate,
+                    endDate,
+                    call,
+                    type,
+                    totalCost,
+                    url,
+                    fundingBodyLink,
+                    cwurl,
+                    teaser,
+                    tags,
+                },
+                score: {mrl, trl, scoringDate, description},
+                classifications: {classification, classification_2nd, classifiedBy}
             },
         })
 
@@ -59,11 +63,15 @@ const createProject = async (prjData) => {
                 location.assign('/admin/project')
             }, 1500)
 
-        const temp_id = res.data.num_id
+            // console.log(res.data)
 
-        addClassification(temp_id, classification, classification_2nd, classifiedBy, null)
+            // const temp_id = res.data.doc.num_id
 
-        addScore(temp_id, mrl, trl, scoringDate, description)
+            // console.log('temp_id: ', temp_id)
+
+            // addClassification(temp_id, classification, classification_2nd, classifiedBy, null)
+
+            // addScore(temp_id, mrl, trl, scoringDate, description)
         }
     } catch (err) {
         showAlert('error', err.response.data.message)

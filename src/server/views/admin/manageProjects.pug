@@ -5,6 +5,15 @@ mixin action(actionClass, label, route, imageStr)
     a(route=route, class=actionClass, style="cursor: pointer; margin: 0 2px;")
         img(width=16, alt=label, src=imageStr)
 
+mixin scaleOptions()
+    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        option(value=val)= val
+
+mixin classificationOptions()
+    each val in process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
+        option(value=val)= val
+
+
 mixin projectRow(project)
     -function prettyDate(date){
         -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
@@ -124,18 +133,22 @@ block content
                 option(value='')= "- no secondary classification -"
                 +classificationOptions()
 
-        h2 Add Project Tags
-        +acmDimension(acmCCS.computerSystems)
-        +acmDimension(acmCCS.softwareEngineering)
-        +acmDimension(acmCCS.computationTheory)
-        +acmDimension(acmCCS.computingMath)
-        +acmDimension(acmCCS.infoSystems)
-        +acmDimension(acmCCS.securityPrivacy)
-        +acmDimension(acmCCS.humanComputing)
-        +acmDimension(acmCCS.computingmethods)
-        +acmDimension(acmCCS.networks)
-        +acmDimension(acmCCS.appliedComputing)
+        .form__group
+            button.btn#btn--create-project Save project
 
+        //- h2 Add Project Tags
+        //- +acmDimension(acmCCS.computerSystems)
+        //- +acmDimension(acmCCS.softwareEngineering)
+        //- +acmDimension(acmCCS.computationTheory)
+        //- +acmDimension(acmCCS.computingMath)
+        //- +acmDimension(acmCCS.infoSystems)
+        //- +acmDimension(acmCCS.securityPrivacy)
+        //- +acmDimension(acmCCS.humanComputing)
+        //- +acmDimension(acmCCS.computingmethods)
+        //- +acmDimension(acmCCS.networks)
+        //- +acmDimension(acmCCS.appliedComputing)
+
+    
     //- p
 
     //- h2 Add MTRL Score
@@ -167,9 +180,6 @@ block content
         //- .form__group
         //-     button.btn#btn--edit-Tags Set tags
 
-        .form__group
-            button.btn#btn--create-project Save project
-
         
     
 
@@ -188,3 +198,20 @@ block content
                 td Actions
         each p in projects
             +projectRow(p)
+
+
+mixin acmDimension(dimension)
+    ul: li
+        - if (project.tags.includes(dimension.tag))
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
+        - else 
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
+        label(for=dimension.tag)= dimension.name
+        li: ul
+            each term in dimension.terms
+                li 
+                    - if (project.tags.includes(term.tag))
+                        input.term(type='checkbox', name=term.tag, value=term.tag, checked)
+                    - else 
+                        input.term(type='checkbox', name=term.tag, value=term.tag)
+                    label(for=term.tag)= term.name

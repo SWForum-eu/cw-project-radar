@@ -466,15 +466,15 @@ if (newProjectForm) {
             teaser: document.getElementById('teaser').value,
 
             // fetching MTRL Scores values from the form
-            mrl = document.getElementById('mrl').value,
-            trl = document.getElementById('trl').value,
-            scoringDate = document.getElementById('scoringdate').value,
-            description = document.getElementById('scoreDescription').value,
+            mrl: document.getElementById('mrl').value,
+            trl: document.getElementById('trl').value,
+            scoringDate: document.getElementById('scoringdate').value,
+            description: document.getElementById('scoreDescription').value,
 
             // fetching project classifications
-            classification = document.getElementById('classification').value,
-            classification_2nd = document.getElementById('classification_2nd').value,
-            classifiedBy = 'SWForum', // for now this is hardcoded when using the web UI
+            classification: document.getElementById('classification').value,
+            classification_2nd: document.getElementById('classification_2nd').value,
+            classifiedBy: 'SWForum', // for now this is hardcoded when using the web UI
         
             // adding project tags
             tags: []
