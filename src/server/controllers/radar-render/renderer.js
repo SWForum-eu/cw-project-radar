@@ -84,7 +84,7 @@ const plotSegments = (root, data, angles, radii) => {
 }
 
 const plotSegmentName = (group, name, lastPath, idx) => {
-    // inject an ID into thering with the given ring index
+    // inject an ID into the ring with the given ring index
     lastPath.attr('id', 'segment-label-' + idx)
     // now add the text path to the segment group
     group
