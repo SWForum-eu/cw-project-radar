@@ -1,5 +1,12 @@
 extends ../structure/_base
 
+mixin scaleOptions()
+    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        option(value=val)= val
+
+mixin classificationOptions()
+    each val in process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
+        option(value=val)= val 
 
 mixin action(actionClass, label, route, imageStr)
     a(route=route, class=actionClass, style="cursor: pointer; margin: 0 2px;")
@@ -93,6 +100,35 @@ block content
         .form__group
             label.form__label(for='cwprojecthublink') CW ProjectHUB link
             input#cwprojecthublink.form__input(type='string', placeholder='https://cyberwatching.eu/projects/...')
+        
+        //- scoring options 
+        .form__group
+            label.form__label(for="mrl") MRL
+            select#mrl(name="mrl")
+                +scaleOptions()
+        .form__group
+            label.form__label(for="trl") TRL
+            select#trl(name="trl")
+                +scaleOptions()
+        .form__group
+            label.form__label(for="scoringDate") Scored on
+            input#scoringdate.form__input(type="date")
+        .form__group
+            label.form__label(for="scoreDescription") Description
+            textarea#scoreDescription.form__input(type='string', cols="70", rows="10")
+
+        .form__group
+            label.form__label(for="classification") Category
+            select#classification(name="classification")
+                +classificationOptions()
+        .form__group
+            label.form__label(for="classification_2nd") 2nd Category
+            select#classification_2nd(name="classification_2nd")
+                option(value='')= "- no secondary classification -"
+                +classificationOptions()
+        .form__group
+            label.form__label(for='changeSummary') Reason
+            input#changeSummary.form__input(type='string', required)
         .form__group
             button.btn#btn--create-project Save project
 

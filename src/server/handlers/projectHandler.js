@@ -9,6 +9,8 @@ const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 // const logger = require('./../utils/logger')
 const { Project } = require('../models/projectModel')
+const { Classification } = require('../models/classificationModel')
+const { MTRLScore } = require('../models/mtrlScoreModel')
 const projectController = require('../controllers/projectController')
 const v = require('../utils/validator')
 
@@ -47,12 +49,46 @@ exports.importProjects = catchAsync(async (req, res, next) => {
     })
 })
 
-exports.createProject = handlerFactory.createOne(
-    Project,
-    'cw_id',
-    'hasClassifications',
-    'hasScores'
-)
+exports.createProject = catchAsync(async (req, res, next) => {
+    // create the project
+    const prj = handlerFactory.filterFields(req.body.project, [])
+    const project = await Project.create(prj)
+
+    // add the MTRL score (if any)
+    if (req.body.mtrl) {
+        const data = req.body.mtrl
+        await MTRLScore.create({
+            project: project._id,
+            scoringDate: data.scoringDate,
+            mrl: data.mrl,
+            trl: data.trl,
+            description: data.description,
+        })
+        // update the project
+        await Project.updateOne({ _id: project._id }, { hasScores: true })
+    }
+
+    // add classification (if any)
+    if (req.body.classification) {
+        const data = req.body.classification
+        await Classification.create({
+            project: project._id,
+            classification: data.classification,
+            secondary_classification: data.classification_2nd,
+            classifiedOn: data.classifiedOn,
+            classifiedBy: data.classifiedBy,
+            changeSummary: data.changeSummary,
+        })
+        // update the project
+        await Project.updateOne({ _id: project._id }, { hasClassifications: true })
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: "none",
+    })
+
+})
 exports.getProject = handlerFactory.getOne(Project)
 exports.getAllProjects = handlerFactory.getAll(Project)
 exports.deleteProject = handlerFactory.deleteOne(Project)
