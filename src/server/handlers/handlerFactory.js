@@ -84,10 +84,11 @@ exports.deleteOne = (Model) =>
         })
     })
 
+// also kicks empty fields!!
 exports.filterFields = (obj, disallowedFields) => {
     const newObj = {}
     Object.keys(obj).forEach((el) => {
-        if (!disallowedFields.includes(el)) {
+        if (obj[el] != undefined && obj[el] != '' && !disallowedFields.includes(el)) {
             newObj[el] = obj[el]
         }
     })
