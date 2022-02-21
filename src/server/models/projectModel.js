@@ -8,7 +8,9 @@ const beautifyUnique = require('mongoose-beautiful-unique-validation')
 // modules
 const AppError = require('./../utils/AppError')
 const nextSeq = require('./sequenceModel')
-const { getAllTags } = require('./../../common/datamodel/jrc-taxonomy')
+// const { getAllTags } = require('./../../common/datamodel/jrc-taxonomy')
+const { getAllTags } = require('./../../common/datamodel/acm-ccs')
+
 
 const isValidTerm = (value) => {
     const allTags = getAllTags()
@@ -91,7 +93,7 @@ const projectSchema = new mongoose.Schema(
             type: [String],
             validate: {
                 validator: isValidTerm,
-                message: (props) => `${props.value} is not a valid JRC taxonomy term tag!`,
+                message: (props) => `${props.value} is not a valid ACM taxonomy term tag!`,
             },
         },
         // # classifications for this project

@@ -54,7 +54,7 @@ describe('Username validation', () => {
 /*
  * Scores param
  */
-describe('Validating scores query param for get ProjectByCWID', () => {
+describe('Validating scores query param for get ProjectBySWID', () => {
     // undef, null or empty
     test('undef, null or empty', () => {
         expect(v.validScoresParam('')).toBe(false)
@@ -78,7 +78,7 @@ describe('Validating scores query param for get ProjectByCWID', () => {
 /*
  * Classification param
  */
-describe('Validating classification query param for get ProjectByCWID', () => {
+describe('Validating classification query param for get ProjectBySWID', () => {
     // undef, null or empty
     test('undef, null or empty', () => {
         expect(v.validClassificationParam(undefined)).toBe(false)
@@ -133,27 +133,27 @@ describe('Validating slugs as user input', () => {
 describe('Validating project CW Ids as user input', () => {
     // undefined, null, empty
     test('undefined, null, empty', () => {
-        expect(v.validCwId(undefined)).toBe(false)
-        expect(v.validCwId(null)).toBe(false)
-        expect(v.validCwId('')).toBe(false)
+        expect(v.validSwId(undefined)).toBe(false)
+        expect(v.validSwId(null)).toBe(false)
+        expect(v.validSwId('')).toBe(false)
     })
 
     // invalid slugs
     test('invalid CW Ids', () => {
-        expect(v.validCwId('?')).toBe(false)
-        expect(v.validCwId('a')).toBe(false)
-        expect(v.validCwId('autumn-020')).toBe(false)
-        expect(v.validCwId('-2020')).toBe(false)
-        expect(v.validCwId('2020-spring')).toBe(false)
-        expect(v.validCwId('username[$ne]=1&password[$ne]=1')).toBe(false)
+        expect(v.validSwId('?')).toBe(false)
+        expect(v.validSwId('a')).toBe(false)
+        expect(v.validSwId('autumn-020')).toBe(false)
+        expect(v.validSwId('-2020')).toBe(false)
+        expect(v.validSwId('2020-spring')).toBe(false)
+        expect(v.validSwId('username[$ne]=1&password[$ne]=1')).toBe(false)
     })
 
     // valid slugs
     test('valid CW Ids', () => {
-        expect(v.validCwId('0')).toBe(true)
-        expect(v.validCwId('1')).toBe(true)
-        expect(v.validCwId('9')).toBe(true)
-        expect(v.validCwId('99')).toBe(true)
-        expect(v.validCwId('9999999999999')).toBe(true)
+        expect(v.validSwId('0')).toBe(true)
+        expect(v.validSwId('1')).toBe(true)
+        expect(v.validSwId('9')).toBe(true)
+        expect(v.validSwId('99')).toBe(true)
+        expect(v.validSwId('9999999999999')).toBe(true)
     })
 })

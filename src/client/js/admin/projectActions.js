@@ -1,11 +1,8 @@
-//
-// IMPORTS
-//
-// libraries
+
 import axios from 'axios'
 // app modules
 import showAlert from '../util/alert'
-
+import {addClassification, addScore} from './scoreAndClassify'
 //
 // create a new project
 //
@@ -25,6 +22,16 @@ const createProject = async (prjData) => {
             window.setTimeout(() => {
                 location.assign('/admin/project')
             }, 1500)
+
+            // console.log(res.data)
+
+            // const temp_id = res.data.doc.num_id
+
+            // console.log('temp_id: ', temp_id)
+
+            // addClassification(temp_id, classification, classification_2nd, classifiedBy, null)
+
+            // addScore(temp_id, mrl, trl, scoringDate, description)
         }
 
     } catch (err) {

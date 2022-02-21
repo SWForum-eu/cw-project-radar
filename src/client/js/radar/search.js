@@ -44,11 +44,11 @@ const searchProjects = (searchStr) => {
         const resultBtn = document.createElement('button')
         resultBtn.addEventListener('click', (e) => {
             // get the project's CW id
-            const cwid = e.target.innerHTML.substring(0, e.target.innerHTML.indexOf('.'))
+            const numid = e.target.innerHTML.substring(0, e.target.innerHTML.indexOf('.'))
             // get the project's blip data
-            const data = document.getElementById(`blip-${cwid}`).dataset
+            const data = document.getElementById(`blip-${numid}`).dataset
             showProjectData(
-                cwid,
+                numid,
                 data.segment,
                 data.ring,
                 JSON.parse(data.performance),

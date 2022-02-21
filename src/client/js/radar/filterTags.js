@@ -5,11 +5,15 @@
 // libraries
 // modules
 // app modules
-import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
+// import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
 import { getStatsActive, getTags, updateTags } from '../util/localStore'
 import { any, all, partition } from '../util/nodeFilter'
-import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
+// import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
 import { fetchStats } from '../radar/asyncRendering'
+
+import { acmCCS, getName } from '../../../common/datamodel/acm-ccs'
+import acmTaxonomyTemplate from '../../views/acmTaxonomyTemplate'
+
 
 //
 // EXPORTS
@@ -57,7 +61,7 @@ const filterBlips = async (userFilter, forced = false) => {
 //
 // Given the list of tags, update the filter UI with the actual term names
 const updateFilterList = async (filter, getNameFunc) => {
-    const filterNode = document.getElementById('jrctagsfilter')
+    const filterNode = document.getElementById('acmtagsfilter')
     // 1) Update filter operation
     const anyRadio = filterNode.childNodes[1].childNodes[2]
     const allRadio = filterNode.childNodes[1].childNodes[3]
@@ -101,10 +105,10 @@ const showFilterTagForm = async () => {
     // get filter tags
     const filter = await getTags()
     // compile HTML from the template
-    const modalString = jrctaxonomyfiltermodalTemplate({
+    const modalString = acmTaxonomyTemplate({
         modalID: 'filterTags',
-        header: 'Filter by JRC Cybersecurity taxonomy terms',
-        jrcTaxonomy,
+        header: 'Filter by ACM Computing Classification System',
+        acmCCS,
         filterTags: filter,
         okButtonLabel: 'Apply',
         cancelButtonLabel: 'Cancel',
@@ -143,6 +147,7 @@ const wireupButtons = (filter) => {
 
         // update the UI & filter projects
         // TODO how can I make this generic the JRC is currently hardcoded!
+        // not entirely sure what this means - Rohan
         await updateFilterList(filter, getName)
         await filterBlips(filter, true) // force an update (for empty filter lists)
         await fetchStats(await getStatsActive())

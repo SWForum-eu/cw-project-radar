@@ -97,12 +97,12 @@ exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!
     const num_id = req.params.id
     if (!num_id || isNaN(num_id)) {
-        throw new AppError('Missing or non-number cyberwatching id in request.', 400)
+        throw new AppError('Missing or non-number swforum id in request.', 400)
     }
 
     // 2) Filter out disallowed fields from the request body
     const doc = handlerFactory.filterFields(req.body, [
-        'cw_id',
+        'num_id',
         'hasClassifications',
         'hasScores',
         'classification',
@@ -126,7 +126,7 @@ exports.updateProject = catchAsync(async (req, res, next) => {
 })
 
 exports.getByNumId = catchAsync(async (req, res, next) => {
-    // cwid  checking
+    // numid  checking
     if (!req.params.num_id || isNaN(req.params.num_id)) {
         throw new AppError('Missing or non-number num_id in request.', 400)
     }
@@ -151,7 +151,7 @@ exports.getByNumId = catchAsync(async (req, res, next) => {
     )
 
     if (!project) {
-        throw new AppError(`No project found with cwid ${req.params.cwid}`, 404)
+        throw new AppError(`No project found with id ${req.params.numid}`, 404)
     }
 
     // return project if found
@@ -184,11 +184,11 @@ exports.getByRCN = catchAsync(async (req, res, next) => {
 //
 exports.addCategory = catchAsync(async (req, res, next) => {
     // 1) fetch data
-    const { cwid } = req.params
+    const { numid } = req.params
     const categoryData = req.body
 
     // 2) add score and save the proejct
-    const classification = await projectController.addCategory(cwid, categoryData)
+    const classification = await projectController.addCategory(numid, categoryData)
 
     // 3) Assemble successful response
     res.status(201).json({
@@ -202,11 +202,11 @@ exports.addCategory = catchAsync(async (req, res, next) => {
 //
 exports.addMTRLScore = catchAsync(async (req, res, next) => {
     // 1) fetch data
-    const { cwid } = req.params
+    const { numid } = req.params
     const scoreData = req.body
 
     // 2) add score and save the proejct
-    const score = await projectController.addMTRLScore(cwid, scoreData)
+    const score = await projectController.addMTRLScore(numid, scoreData)
 
     // 3) Assemble successful response
     res.status(201).json({

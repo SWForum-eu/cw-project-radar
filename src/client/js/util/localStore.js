@@ -14,9 +14,9 @@ export { getModel, getStatsActive, setStatsActive, getTags, updateTags }
 //
 // MODULE VARS
 //
-const strgId_model = 'eu.cyberwatching.radar.model'
-const strgId_stats = 'eu.cyberwatching.radar.stats'
-const strgId_jrcTags = 'eu.cyberwatching.radar.user.jrcTags'
+const strgId_model = 'swforum.radar.model'
+const strgId_stats = 'swforum.stats'
+const strgId_jrcTags = 'swforum.acmtaxonomy'
 
 /***************
  *             *

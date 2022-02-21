@@ -48,7 +48,7 @@ const fetchStats = async (doFetch = false) => {
     // only if nodes are visible fetch the data
     if (nodes && nodes.length > 0) {
         const ids = []
-        nodes.forEach((n) => ids.push(n.dataset.cwId))
+        nodes.forEach((n) => ids.push(n.dataset.numId))
         // call API
         let res = (
             await axios({
