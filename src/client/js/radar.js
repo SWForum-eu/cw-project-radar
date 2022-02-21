@@ -463,7 +463,7 @@ if (newProjectForm) {
                 totalCost: document.getElementById('totalCost').value,
                 url: document.getElementById('url').value,
                 fundingBodyLink: document.getElementById('fundingbodylink').value,
-                cwurl: document.getElementById('cwprojecthublink').value,
+                cwurl: document.getElementById('swprojecthublink').value,
                 teaser: document.getElementById('teaser').value,
             },
             // MTRL score (if any)

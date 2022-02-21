@@ -107,7 +107,7 @@ block content
             label.form__label(for='fundingbodylink') Funding body entry
             input#fundingbodylink.form__input(type='string', placeholder='https://cordis.europa.eu/...')
         .form__group
-            label.form__label(for='swprojecthublink') CW ProjectHUB link
+            label.form__label(for='swprojecthublink') SWForum ProjectHUB link
             input#swprojecthublink.form__input(type='string', placeholder='https://https://swforum.eu/project-hub')
         
         //- scoring options 
@@ -139,6 +139,9 @@ block content
             select#classification_2nd(name="classification_2nd")
                 option(value='')= "- no secondary classification -"
                 +classificationOptions()
+        .form__group
+            label.form__label(for='changeSummary') Reason
+            input#changeSummary.form__input(type='string', required)
         .form__group
             button.btn#btn--create-project Save project
 
