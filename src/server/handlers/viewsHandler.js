@@ -275,6 +275,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
         title: 'Manage projects',
         pageclass: 'manage-projects',
         projects,
+        acmCCS
     })
 })
 
