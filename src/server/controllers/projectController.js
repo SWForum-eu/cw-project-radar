@@ -10,7 +10,7 @@ const { Project } = require('../models/projectModel')
 const importHelper = require('./projects/projectsImportHelper')
 
 //
-// get by CW ID
+// get by num ID
 //
 // IMPORTANT - this function returns a Javascript object, NOT a mongoose model!
 //

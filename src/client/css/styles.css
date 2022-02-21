@@ -819,6 +819,9 @@ div.ops * {
     cursor: pointer;
 }
 /* elements in the modal to select the tags */
+/* form.form--filter-tags ul, form.form--edit-tags ul { */
+
+form.form--new-project ul,
 form.form--filter-tags ul,
 form.form--edit-tags ul {
     list-style: none;

@@ -5,7 +5,8 @@
 import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
-import { getName } from './../../../common/datamodel/jrc-taxonomy'
+// import { getName } from './../../../common/datamodel/jrc-taxonomy'
+import { getName } from './../../../common/datamodel/acm-ccs'
 // eslint-disable-next-line node/no-unpublished-import
 import projectinfoTemplate from './../../views/projectInfo'
 // eslint-disable-next-line node/no-unpublished-import

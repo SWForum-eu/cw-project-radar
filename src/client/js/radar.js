@@ -19,7 +19,8 @@ import {
 import { createRadar, updateRadar, deleteRadar, advanceRadar } from './admin/radarActions'
 import { createProject, deleteProject, updateProject, importProjects } from './admin/projectActions'
 import { addClassification, addScore } from './admin/scoreAndClassify'
-import { getName } from '../../common/datamodel/jrc-taxonomy'
+// import { getName } from '../../common/datamodel/jrc-taxonomy'
+import { getName } from '../../common/datamodel/acm-ccs'
 import { searchProjects, clearProjects } from './radar/search.js'
 import { fetchRendering, fetchStats } from './radar/asyncRendering'
 import { RadarCoordinates } from '../../common/widgets/radar-location/radar-coords'
@@ -263,7 +264,7 @@ if (radarSection) {
 //
 // Show JRC tag filter modal form
 //
-const jrcTagFormButton = document.querySelector('#jrctagsfilter button')
+const jrcTagFormButton = document.querySelector('#acmtagsfilter button')
 if (jrcTagFormButton) {
     // wire up the button to show the filter tags meny
     jrcTagFormButton.addEventListener('click', (event) => {
@@ -462,8 +463,11 @@ if (newProjectForm) {
                 totalCost: document.getElementById('totalCost').value,
                 url: document.getElementById('url').value,
                 fundingBodyLink: document.getElementById('fundingbodylink').value,
-                cwurl: document.getElementById('cwprojecthublink').value,
+
+                cwurl: document.getElementById('swprojecthublink').value,
                 teaser: document.getElementById('teaser').value,
+                tags: []
+
             },
             // MTRL score (if any)
             mtrl: {
@@ -480,9 +484,13 @@ if (newProjectForm) {
                 changeSummary: document.getElementById('changeSummary').value
             }
 
-    
-
         }
+        // add the taxonomy tax to the project tags
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
+            values.project.tags.push(c.value)
+        })
+
+
         await createProject(values)
     })
 }
@@ -533,7 +541,7 @@ if (editProjectForm) {
             totalCost: document.getElementById('totalCost').value,
             url: document.getElementById('url').value,
             fundingBodyLink: document.getElementById('fundingbodylink').value,
-            cwurl: document.getElementById('cwprojecthublink').value,
+            cwurl: document.getElementById('swprojecthublink').value,
             teaser: document.getElementById('teaser').value,
         }
         await updateProject(values)
@@ -619,7 +627,7 @@ if (taxonomySubmit) {
     taxonomySubmit.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
-            cw_id: document.getElementById('project_cwid').value,
+            num_id: document.getElementById('project_numid').value,
             tags: [],
         }
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
