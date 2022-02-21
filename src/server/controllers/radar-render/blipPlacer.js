@@ -175,12 +175,58 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
 
     // 2) Add the <circle> to the blip group
     const colour = arcColour(blip)
+    // // the circle
+    // blipGroup
+    //     .append('circle')
+    //     .attr('r', geom.blipDia /2)
+    //     .attr('fill', 'white')
+    //     .attr('stroke-width', colour === '#000000' ? 2 : 4)
+    //     .attr('stroke', colour)
+
+    // // as a square
+    // blipGroup
+    //     .append('rect')
+    //     .attr('x', -1*geom.blipDia/2)
+    //     .attr('y', -1*geom.blipDia/2)
+    //     .attr('width', geom.blipDia)
+    //     .attr('height', geom.blipDia)
+    //     .attr('fill', 'white')
+    //     .attr('stroke', colour)
+    //     .attr('stroke-width', colour === '#000000' ? 2 : 4)
+    
+    // as an equilateral triangle
+    const factor = 520/600
+    let x1 = 0
+    let y1 = -1*geom.blipDia/2
+    let points = `${x1},${y1} `
+    x1 = geom.blipDia/2
+    y1 = factor*geom.blipDia-geom.blipDia/2
+    points += `${x1},${y1} `
+    x1 = -1*geom.blipDia/2
+    points += `${x1},${y1}`
     blipGroup
-        .append('circle')
-        .attr('r', geom.blipDia * 0.4)
+        .append('polygon')
+        .attr('points', points)
         .attr('fill', 'white')
-        .attr('stroke-width', colour === '#000000' ? 2 : 4)
         .attr('stroke', colour)
+        .attr('stroke-width', colour === '#000000' ? 2 : 4)
+
+    // // as an isosceles triangle
+    // let x2 = 0
+    // let y2 = -1*geom.blipDia/2
+    // let points1 = `${x2},${y2} `
+    // x2 = geom.blipDia/2
+    // y2 = geom.blipDia/2
+    // points1 += `${x2},${y2} `
+    // x2 = -1*geom.blipDia/2
+    // y2 = geom.blipDia/2
+    // points1 += `${x2},${y2}`
+    // blipGroup
+    //     .append('polygon')
+    //     .attr('points', points1)
+    //     .attr('fill', 'white')
+    //     .attr('stroke', colour)
+    //     .attr('stroke-width', colour === '#000000' ? 2 : 4)
 
     // 3) Add the <text> to the blip group
     blipGroup
