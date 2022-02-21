@@ -97,7 +97,7 @@ exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!
     const num_id = req.params.id
     if (!num_id || isNaN(num_id)) {
-        throw new AppError('Missing or non-number cyberwatching id in request.', 400)
+        throw new AppError('Missing or non-number swforum id in request.', 400)
     }
 
     // 2) Filter out disallowed fields from the request body

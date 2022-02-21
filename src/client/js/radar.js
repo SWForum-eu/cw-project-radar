@@ -484,6 +484,11 @@ if (newProjectForm) {
     
 
         }
+
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
+            values.tags.push(c.value)
+        })
+
         await createProject(values)
     })
 }
