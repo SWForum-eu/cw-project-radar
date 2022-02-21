@@ -463,9 +463,11 @@ if (newProjectForm) {
                 totalCost: document.getElementById('totalCost').value,
                 url: document.getElementById('url').value,
                 fundingBodyLink: document.getElementById('fundingbodylink').value,
+
                 cwurl: document.getElementById('swprojecthublink').value,
                 teaser: document.getElementById('teaser').value,
                 tags: []
+
             },
             // MTRL score (if any)
             mtrl: {
@@ -481,6 +483,7 @@ if (newProjectForm) {
                 classifiedBy: 'SWForum', // for now this is hardcoded when using the web UI
                 changeSummary: document.getElementById('changeSummary').value
             }
+
         }
         // add the taxonomy tax to the project tags
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
