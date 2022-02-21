@@ -410,7 +410,6 @@ if (deleteRadarLinks) {
     deleteRadarLinks.forEach((link) => {
         link.addEventListener('click', async (event) => {
             event.preventDefault()
-            console.log(event.path[1].getAttribute('route'))
             await deleteRadar(event.path[1].getAttribute('route'), location.href)
         })
     })
@@ -452,18 +451,38 @@ if (newProjectForm) {
     newProjectForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
-            acronym: document.getElementById('acronym').value,
-            rcn: document.getElementById('rcn').value,
-            title: document.getElementById('title').value,
-            startDate: document.getElementById('startdate').value,
-            endDate: document.getElementById('enddate').value,
-            call: document.getElementById('fundingcall').value,
-            type: document.getElementById('projecttype').value,
-            totalCost: document.getElementById('totalCost').value,
-            url: document.getElementById('url').value,
-            fundingBodyLink: document.getElementById('fundingbodylink').value,
-            cwurl: document.getElementById('swprojecthublink').value,
-            teaser: document.getElementById('teaser').value,
+            // the Project
+            project: {
+                acronym: document.getElementById('acronym').value,
+                rcn: document.getElementById('rcn').value,
+                title: document.getElementById('title').value,
+                startDate: document.getElementById('startdate').value,
+                endDate: document.getElementById('enddate').value,
+                call: document.getElementById('fundingcall').value,
+                type: document.getElementById('projecttype').value,
+                totalCost: document.getElementById('totalCost').value,
+                url: document.getElementById('url').value,
+                fundingBodyLink: document.getElementById('fundingbodylink').value,
+                cwurl: document.getElementById('cwprojecthublink').value,
+                teaser: document.getElementById('teaser').value,
+            },
+            // MTRL score (if any)
+            mtrl: {
+                mrl: document.getElementById('mrl').value,
+                trl: document.getElementById('trl').value,
+                scoringDate: document.getElementById('scoringdate').value,
+                description: document.getElementById('scoreDescription').value,
+            },
+            // classification (if any)
+            classification: {
+                classification: document.getElementById('classification').value,
+                classification_2nd: document.getElementById('classification_2nd').value,
+                classifiedBy: 'SWForum', // for now this is hardcoded when using the web UI
+                changeSummary: document.getElementById('changeSummary').value
+            }
+
+    
+
         }
         await createProject(values)
     })

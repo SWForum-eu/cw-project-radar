@@ -11,36 +11,12 @@ import showAlert from '../util/alert'
 //
 const createProject = async (prjData) => {
     try {
-        const {
-            acronym,
-            rcn,
-            title,
-            startDate,
-            endDate,
-            call,
-            type,
-            totalCost,
-            url,
-            fundingBodyLink,
-            cwurl,
-            teaser,
-        } = prjData
+        const {project, mtrl, classification} = prjData
         const res = await axios({
             method: 'POST',
             url: '/api/v1/project/',
             data: {
-                acronym,
-                rcn,
-                title,
-                startDate,
-                endDate,
-                call,
-                type,
-                totalCost,
-                url,
-                fundingBodyLink,
-                cwurl,
-                teaser,
+                project, mtrl, classification
             },
         })
 
@@ -50,6 +26,7 @@ const createProject = async (prjData) => {
                 location.assign('/admin/project')
             }, 1500)
         }
+
     } catch (err) {
         showAlert('error', err.response.data.message)
     }
@@ -80,7 +57,6 @@ const deleteProject = async (route, referrer) => {
 // UPDATE PROJECT
 //
 const updateProject = async (prjData) => {
-    console.log(prjData)
     try {
         const {
             num_id,
