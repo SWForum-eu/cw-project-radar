@@ -99,7 +99,7 @@ exports.createProjects = (results) => {
                         teaser: prj.teaser,
                         url: prj.url,
                         fundingBodyLink: prj.fundingBodyLink,
-                        cwurl: prj.cwurl,
+                        // cwurl: prj.cwurl,
                     }).then(
                         (data) => {
                             projects.push(data)

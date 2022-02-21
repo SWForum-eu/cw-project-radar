@@ -21,11 +21,12 @@ const v = require('../utils/validator')
 const multerStorage = multer.memoryStorage()
 // filter out anything that is not text/csv or text/tsv
 const multerFilter = (req, file, cb) => {
-    if (file.mimetype.startsWith('text')) {
+//    console.log(file.mimetype)
+//    if (file.mimetype.startsWith('text')) {
         cb(null, true)
-    } else {
-        cb(new AppError('Not a text file!', 400), false)
-    }
+//    } else {
+//        cb(new AppError('Not a text file!', 400), false)
+//    }
 }
 // multer middleware to store multipart import-file data in the request object
 const upload = multer({

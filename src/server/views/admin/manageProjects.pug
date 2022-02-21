@@ -20,6 +20,22 @@ mixin classificationOptions()
     each val in process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
         option(value=val)= val
 
+mixin acmDimension(dimension)
+    ul: li
+        - if (project.tags.includes(dimension.tag))
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
+        - else 
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
+        label(for=dimension.tag)= dimension.name
+        li: ul
+            each term in dimension.terms
+                li 
+                    - if (project.tags.includes(term.tag))
+                        input.term(type='checkbox', name=term.tag, value=term.tag, checked)
+                    - else 
+                        input.term(type='checkbox', name=term.tag, value=term.tag)
+                    label(for=term.tag)= term.name
+
 
 mixin projectRow(project)
     -function prettyDate(date){
@@ -107,8 +123,8 @@ block content
             label.form__label(for='fundingbodylink') Funding body entry
             input#fundingbodylink.form__input(type='string', placeholder='https://cordis.europa.eu/...')
         .form__group
-            label.form__label(for='cwprojecthublink') CW ProjectHUB link
-            input#cwprojecthublink.form__input(type='string', placeholder='https://swforum.eu/project-hub')
+            label.form__label(for='cwprojecthublink') SWForum ProjectHUB link
+            input#cwprojecthublink.form__input(type='string', placeholder='https://swforum.eu/project-hub/...')
         
         //- scoring options 
         .form__group
@@ -134,9 +150,9 @@ block content
             select#classification_2nd(name="classification_2nd")
                 option(value='')= "- no secondary classification -"
                 +classificationOptions()
-
         .form__group
-            button.btn#btn--create-project Save project
+            label.form__label(for='changeSummary') Reason
+            input#changeSummary.form__input(type='string', required)
 
         //- h2 Add Project Tags
         //- +acmDimension(acmCCS.computerSystems)
@@ -149,6 +165,9 @@ block content
         //- +acmDimension(acmCCS.computingmethods)
         //- +acmDimension(acmCCS.networks)
         //- +acmDimension(acmCCS.appliedComputing)
+
+        .form__group
+            button.btn#btn--create-project Save project
 
     
     //- p
@@ -202,18 +221,4 @@ block content
             +projectRow(p)
 
 
-mixin acmDimension(dimension)
-    ul: li
-        - if (project.tags.includes(dimension.tag))
-            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
-        - else 
-            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
-        label(for=dimension.tag)= dimension.name
-        li: ul
-            each term in dimension.terms
-                li 
-                    - if (project.tags.includes(term.tag))
-                        input.term(type='checkbox', name=term.tag, value=term.tag, checked)
-                    - else 
-                        input.term(type='checkbox', name=term.tag, value=term.tag)
-                    label(for=term.tag)= term.name
+

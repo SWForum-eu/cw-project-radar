@@ -210,7 +210,7 @@ exports.getStats = catchAsync(async (req, res, next) => {
     const ids = req.query.prjs.split(',').map(Number)
     const aMonth = 30 * 24 * 60 * 60 * 1000
     const agg = [
-        { $match: { cw_id: { $in: ids } } },
+        { $match: { num_id: { $in: ids } } },
         {
             $set: {
                 duration: { $divide: [{ $subtract: ['$endDate', '$startDate'] }, aMonth] },
