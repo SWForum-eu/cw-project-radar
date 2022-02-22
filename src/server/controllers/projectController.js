@@ -128,7 +128,11 @@ exports.addMTRLScore = async (num_id, data) => {
 
 exports.importProjects = async (buffer) => {
     // 1) Read the buffer into an array of objects
+
+    console.log('hello1')
     let result = await importHelper.parseTSV(buffer)
+    console.log('hello2')
+
     if (result.status !== 'success') {
         throw new AppError(`Error parsing import file: ${result.messages[0]}`, 400)
     }
@@ -147,7 +151,7 @@ exports.getMatchingProjects = async (filter) => {
     let queryResult
 
     // base query
-    let query = Project.find().select({ cw_id: 1, _id: 0 })
+    let query = Project.find().select({ num_id: 1, _id: 0 })
 
     // if empty filter, all projecs match
     if (!filter.tags || filter.tags.length === 0) {
@@ -163,7 +167,7 @@ exports.getMatchingProjects = async (filter) => {
     }
 
     // reduce the returned objects to a number array
-    return queryResult.map((prj) => prj.cw_id)
+    return queryResult.map((prj) => prj.num_id)
 }
 
 exports.findProjects = async (criteria) => {
@@ -176,7 +180,7 @@ exports.findProjects = async (criteria) => {
             $language: 'en',
             $caseSensitive: caseSensitive,
         },
-    }).select('cw_id rcn acronym title -_id')
+    }).select('num_id rcn acronym title -_id')
 
     let queryResult = await query
 

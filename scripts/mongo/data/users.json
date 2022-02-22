@@ -3,7 +3,7 @@
 		"$oid": "5fda6e6c2ab7287bea5221fc"
 	},
 	"name": "admin",
-	"email": "cyber@cyberwatching.eu",
+	"email": "rohan@swforum.eu",
 	"password": "$2a$12$.n4NvG1ok5vxZYhf032Mn.QK9ZX9tDs2Gs3LRkIq.9lqxwxYV9T8K",
 	"role": "admin",
 	"active": true
