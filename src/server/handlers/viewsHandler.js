@@ -320,7 +320,7 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
 
     // 2) Get the latest MTRL submission for the given project
     const data = await Project.aggregate()
-        .match({ cw_id: { $eq: Number(req.params.numid) } })
+        .match({ num_id: { $eq: Number(req.params.numid) } })
         .lookup({
             from: 'mtrlscores',
             let: { prjID: '$_id' },

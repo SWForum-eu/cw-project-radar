@@ -26,7 +26,7 @@ const csvParseOptions = {
     quote: null,
     renameHeaders: true,
     headers: [
-        'cw_id',
+        'num_id',
         'name',
         'rcn',
         'call',
@@ -98,7 +98,7 @@ const importProjects = () => {
             })
 
             .on('data', (row) => {
-                if (row.cw_id === '156') {
+                if (row.num_id === '156') {
                     console.log('** omitting Dogana II **')
                     return
                 }

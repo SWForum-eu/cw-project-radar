@@ -21,11 +21,12 @@ const v = require('../utils/validator')
 const multerStorage = multer.memoryStorage()
 // filter out anything that is not text/csv or text/tsv
 const multerFilter = (req, file, cb) => {
-    if (file.mimetype.startsWith('text')) {
+//    console.log(file.mimetype)
+//    if (file.mimetype.startsWith('text')) {
         cb(null, true)
-    } else {
-        cb(new AppError('Not a text file!', 400), false)
-    }
+//    } else {
+//        cb(new AppError('Not a text file!', 400), false)
+//    }
 }
 // multer middleware to store multipart import-file data in the request object
 const upload = multer({
@@ -48,6 +49,9 @@ exports.importProjects = catchAsync(async (req, res, next) => {
         messages: result.messages,
     })
 })
+
+exports.getProject = handlerFactory.getOne(Project)
+exports.getAllProjects = handlerFactory.getAll(Project)
 
 exports.createProject = catchAsync(async (req, res, next) => {
     // create the project
@@ -89,9 +93,21 @@ exports.createProject = catchAsync(async (req, res, next) => {
     })
 
 })
-exports.getProject = handlerFactory.getOne(Project)
-exports.getAllProjects = handlerFactory.getAll(Project)
-exports.deleteProject = handlerFactory.deleteOne(Project)
+
+exports.deleteProject = catchAsync(async (req, res, next) => {
+    // delete all associated scores
+    await MTRLScore.deleteMany({project: req.params.id})
+    // delete all its classifications
+    await Classification.deleteMany({project: req.params.id})
+    //finally delete the project itself
+    await Project.findByIdAndDelete(req.params.id)
+
+    // return project if found
+    res.status(200).json({
+        status: 'success',
+    })
+    
+})
 
 exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!

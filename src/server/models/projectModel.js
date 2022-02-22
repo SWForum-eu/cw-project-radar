@@ -64,6 +64,9 @@ const projectSchema = new mongoose.Schema(
             type: Date,
             required: true,
         },
+        createDate: {
+            type: Date
+        },
         call: String,   // the EC funding call
         type: String,   // project type (mostly IA, RIA, RA, or CSA)
         totalCost: {
@@ -116,10 +119,11 @@ const projectSchema = new mongoose.Schema(
 //
 // SCHEMA MIDDLEWARE
 //
-// ensure that cw_id gets a unique number.
+// ensure that num_id gets a unique number.
 projectSchema.pre('save', async function (next) {
     if (this.isNew) {
         this.num_id = await nextSeq('project')
+        this.createDate = Date()
     }
 
     next()
