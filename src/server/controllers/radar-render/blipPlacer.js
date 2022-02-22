@@ -105,7 +105,7 @@ const pickCoords = (blip, chance, geom) => {
     //    d. Adjust the angle apertures for the randomiser based on
     //       the blip's main and secondary classifications
     let min, max
-    if (!blip.segment_2) {
+    if (!blip.segment_2 || blip.segment == blip.segment_2) {
         //   d.1 no secondary classification. Adjust aperture to middle subsegment
         min = startA + offset + delta
         max = endA - offset - delta
