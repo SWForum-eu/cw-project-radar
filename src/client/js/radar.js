@@ -463,8 +463,11 @@ if (newProjectForm) {
                 totalCost: document.getElementById('totalCost').value,
                 url: document.getElementById('url').value,
                 fundingBodyLink: document.getElementById('fundingbodylink').value,
-                cwurl: document.getElementById('cwprojecthublink').value,
+
+                cwurl: document.getElementById('swprojecthublink').value,
                 teaser: document.getElementById('teaser').value,
+                tags: []
+
             },
             // MTRL score (if any)
             mtrl: {
@@ -481,13 +484,17 @@ if (newProjectForm) {
                 changeSummary: document.getElementById('changeSummary').value
             }
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> master
         }
-
+        // add the taxonomy tax to the project tags
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
-            values.tags.push(c.value)
+            values.project.tags.push(c.value)
         })
+
 
         await createProject(values)
     })
