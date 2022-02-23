@@ -484,11 +484,6 @@ if (newProjectForm) {
                 changeSummary: document.getElementById('changeSummary').value
             }
 
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> master
         }
         // add the taxonomy tax to the project tags
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {

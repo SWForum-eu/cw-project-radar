@@ -123,13 +123,8 @@ block content
             label.form__label(for='fundingbodylink') Funding body entry
             input#fundingbodylink.form__input(type='string', placeholder='https://cordis.europa.eu/...')
         .form__group
-<<<<<<< HEAD
-            label.form__label(for='cwprojecthublink') SWForum ProjectHUB link
-            input#cwprojecthublink.form__input(type='string', placeholder='https://swforum.eu/project-hub/...')
-=======
             label.form__label(for='swprojecthublink') SWForum ProjectHUB link
             input#swprojecthublink.form__input(type='string', placeholder='https://https://swforum.eu/project-hub')
->>>>>>> master
         
         //- scoring options 
         .form__group
@@ -146,8 +141,6 @@ block content
         .form__group
             label.form__label(for="scoreDescription") Description
             textarea#scoreDescription.form__input(type='string', cols="70", rows="10")
-<<<<<<< HEAD
-=======
 
 
 
@@ -155,7 +148,6 @@ block content
         //- .form__group
         //-     input#numid.form__input(type='hidden', required, value=project.num_id)
 
->>>>>>> master
         .form__group
             label.form__label(for="classification") Category
             select#classification(name="classification")
@@ -168,58 +160,6 @@ block content
         .form__group
             label.form__label(for='changeSummary') Reason
             input#changeSummary.form__input(type='string', required)
-<<<<<<< HEAD
-
-        //- h2 Add Project Tags
-        //- +acmDimension(acmCCS.computerSystems)
-        //- +acmDimension(acmCCS.softwareEngineering)
-        //- +acmDimension(acmCCS.computationTheory)
-        //- +acmDimension(acmCCS.computingMath)
-        //- +acmDimension(acmCCS.infoSystems)
-        //- +acmDimension(acmCCS.securityPrivacy)
-        //- +acmDimension(acmCCS.humanComputing)
-        //- +acmDimension(acmCCS.computingmethods)
-        //- +acmDimension(acmCCS.networks)
-        //- +acmDimension(acmCCS.appliedComputing)
-
-        .form__group
-            button.btn#btn--create-project Save project
-
-    
-    //- p
-
-    //- h2 Add MTRL Score
-    //- .addscore-form: form.form.form--add-score#add-score-form
-    //-     .form__group
-    //-         input#numid.form__input(type='hidden', required, value=project.num_id)
-        
-        //- .form__group
-        //-     button.btn#btn--add-score Add Scores
-
-
-    //- P
-
-    //- h2 Add Project Classifications
-    //- .addcategory-form: form.form.form--add-category#add-category-form
-        
-        //- .form__group
-        //-     label.form__label(for='changeSummary') Reason
-        //-     input#changeSummary.form__input(type='string', required)
-        //- .form__group
-        //-     button.btn#btn--add-category Add Classifications
-
-
-    //- P
-
-    //- h2 Add Project Tags
-    //- .edittags-form: form.form.form--edit-tags#edit-tags-form
-        
-        //- .form__group
-        //-     button.btn#btn--edit-Tags Set tags
-
-        
-    
-=======
 
         +acmDimension(acmCCS.computerSystems)
         +acmDimension(acmCCS.softwareEngineering)
@@ -235,7 +175,6 @@ block content
         .form__group
             button.btn#btn--create-project Save project
 
->>>>>>> master
 
     h2 Manage projects
     table
@@ -254,9 +193,6 @@ block content
             +projectRow(p)
 
 
-<<<<<<< HEAD
-
-=======
 mixin acmDimension(dimension)
     ul: li
         input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
@@ -266,4 +202,3 @@ mixin acmDimension(dimension)
                 li 
                     input.term(type='checkbox', name=term.tag, value=term.tag)
                     label(for=term.tag)= term.name
->>>>>>> master
