@@ -178,13 +178,31 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
 
     // 2) Add the <circle> to the blip group
     const colour = arcColour(blip)
-    // // the circle
-    // blipGroup
-    //     .append('circle')
-    //     .attr('r', geom.blipDia /2)
-    //     .attr('fill', 'white')
-    //     .attr('stroke-width', colour === '#000000' ? 2 : 4)
-    //     .attr('stroke', colour)
+    if (blip.isNew) {
+        // as an equilateral triangle
+        const factor = 520/600
+        let x1 = 0
+        let y1 = -1*geom.blipDia/2
+        let points = `${x1},${y1} `
+        x1 = geom.blipDia/2
+        y1 = factor*geom.blipDia-geom.blipDia/2
+        points += `${x1},${y1} `
+        x1 = -1*geom.blipDia/2
+        points += `${x1},${y1}`
+        blipGroup
+            .append('polygon')
+            .attr('points', points)
+            .attr('fill', 'white')
+            .attr('stroke', colour)
+            .attr('stroke-width', colour === '#000000' ? 2 : 4)
+    } else {
+        blipGroup
+            .append('circle')
+            .attr('r', geom.blipDia /2)
+            .attr('fill', 'white')
+            .attr('stroke-width', colour === '#000000' ? 2 : 4)
+            .attr('stroke', colour)
+    }
 
     // // as a square
     // blipGroup
@@ -197,22 +215,6 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
     //     .attr('stroke', colour)
     //     .attr('stroke-width', colour === '#000000' ? 2 : 4)
     
-    // as an equilateral triangle
-    const factor = 520/600
-    let x1 = 0
-    let y1 = -1*geom.blipDia/2
-    let points = `${x1},${y1} `
-    x1 = geom.blipDia/2
-    y1 = factor*geom.blipDia-geom.blipDia/2
-    points += `${x1},${y1} `
-    x1 = -1*geom.blipDia/2
-    points += `${x1},${y1}`
-    blipGroup
-        .append('polygon')
-        .attr('points', points)
-        .attr('fill', 'white')
-        .attr('stroke', colour)
-        .attr('stroke-width', colour === '#000000' ? 2 : 4)
 
     // // as an isosceles triangle
     // let x2 = 0

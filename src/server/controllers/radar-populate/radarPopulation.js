@@ -2,7 +2,7 @@
 // IMPORTS
 //
 // libraries
-// const moment = require('moment')
+const moment = require('moment')
 const simpleStats = require('simple-statistics')
 // modules
 // const APIFeatures = require('../utils/apiFeatures')
@@ -11,7 +11,6 @@ const classificationController = require('../classificationController')
 const mtrlScoresController = require('../mtrlScoresController')
 // const Radar = require('../models/radarModel')
 // const renderer = require('./radar-render/renderer')
-const { Blip, RadarData } = require('../../models/radarDataModel')
 const { Project } = require('../../models/projectModel')
 
 //
@@ -19,6 +18,7 @@ const { Project } = require('../../models/projectModel')
 //
 const rings = process.env.MODEL_RINGS.split(',').map((e) => e.trim())
 const segments = process.env.MODEL_SEGMENTS.split(',').map((e) => e.trim())
+const isNew = process.env.IS_NEW | 6
 
 //
 // Compile the blips for all projects that are in scope for the radar
@@ -50,7 +50,7 @@ exports.compileRadarPopulation = async (cutOffDate) => {
     // 3) Map all projects into the "data" structure.
     await mapProjectsToData(projects, data, cutOffDate)
     // 4) Create a RadarData object from this data structure of the 90's called "data"
-    const radarData = createRadarData(data)
+    const radarData = createRadarData(data, cutOffDate)
 
     // 5) Finally return the radar data
     return radarData
@@ -73,7 +73,6 @@ const mapProjectsToData = async (projects, data, cutOffDate) => {
             segment = segment.classification
             const ring = calculateRing(prj, cutOffDate)
 
-            console.log(segment, ring)
             // If the project has a score, fetch and add the score too as we need that later anyway.
             let score = undefined
             if (prj.hasScores) {
@@ -111,7 +110,7 @@ const calculateRing = (project, radarDate) => {
 
 //
 // transform the ugly data "structure" into a RadarData entity (just as ugly)
-const createRadarData = (data) => {
+const createRadarData = (data, cutOffDate) => {
     const radarData = new Map()
     for (const [segKey, segMap] of data.entries()) {
         const segDataMap = new Map()
@@ -120,6 +119,7 @@ const createRadarData = (data) => {
             const ringData = []
             entries.forEach((entry) => {
                 const blip = {
+                    isNew: calcIsNew(entry.prj.createDate, cutOffDate),
                     project: entry.prj._id,
                     tags: entry.prj.tags,
                     num_id: entry.prj.num_id, // temporary
@@ -145,6 +145,12 @@ const createRadarData = (data) => {
     }
 
     return radarData
+}
+
+const calcIsNew = (createDate, cutOffDate) => {
+    const create = moment(createDate)
+    const compare = cutOffDate.subtract(isNew, 'months')
+    return compare.isBefore(create)
 }
 
 //
