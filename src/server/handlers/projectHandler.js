@@ -50,6 +50,9 @@ exports.importProjects = catchAsync(async (req, res, next) => {
     })
 })
 
+exports.getProject = handlerFactory.getOne(Project)
+exports.getAllProjects = handlerFactory.getAll(Project)
+
 exports.createProject = catchAsync(async (req, res, next) => {
     // create the project
     const prj = handlerFactory.filterFields(req.body.project, [])
@@ -90,9 +93,21 @@ exports.createProject = catchAsync(async (req, res, next) => {
     })
 
 })
-exports.getProject = handlerFactory.getOne(Project)
-exports.getAllProjects = handlerFactory.getAll(Project)
-exports.deleteProject = handlerFactory.deleteOne(Project)
+
+exports.deleteProject = catchAsync(async (req, res, next) => {
+    // delete all associated scores
+    await MTRLScore.deleteMany({project: req.params.id})
+    // delete all its classifications
+    await Classification.deleteMany({project: req.params.id})
+    //finally delete the project itself
+    await Project.findByIdAndDelete(req.params.id)
+
+    // return project if found
+    res.status(200).json({
+        status: 'success',
+    })
+    
+})
 
 exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!
