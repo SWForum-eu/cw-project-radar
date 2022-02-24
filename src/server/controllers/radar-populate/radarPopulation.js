@@ -105,7 +105,7 @@ const calculateRing = (project, radarDate) => {
     // if (project.endDate < testDate.toDate()) 
     
     else
-    return rings[2] // Assess
+        return rings[2] // Assess
 
 }
 
