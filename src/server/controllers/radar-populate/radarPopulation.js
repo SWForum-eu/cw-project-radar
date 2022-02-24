@@ -105,7 +105,6 @@ const calculateRing = (project, radarDate) => {
     
     else
         return rings[2] // Assess
-
 }
 
 //
