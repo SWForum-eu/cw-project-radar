@@ -8,14 +8,17 @@ const parseCurrency = require('parsecurrency')
 const streamifier = require('streamifier')
 // app modules
 const { Project } = require('./../../models/projectModel')
+const { logger } = require('../../utils/logger')
 
 //
 // Cnfigure TSV parsing
 //
 const csvParseOptions = {
     delimiter: '	',
-    quote: null,
+    quote: '"',
+    escape: '\\',
     renameHeaders: true,
+    strictColumnHandling: true,
     headers: [
         'acronym',
         'rcn',
@@ -23,36 +26,43 @@ const csvParseOptions = {
         'type',
         'startDate',
         'endDate',
-        'budget',
+        'totalCost',
         'title',
         'teaser',
         'url',
         'fundingBodyLink',
-        'cwurl',
+        'hubUrl',
     ],
 }
 
 //
 // parse TSV buffers into plain JS objects
 //
-exports.parseTSV = (buffer) => {
+exports.parseCSV = async (buffer, name) => {
     // 1) Create return data structures
     const data = []
     let status = 'success'
-    const messages = []
-    // 2) Create stream buffer and start parsing data
+    let message = ''
+    // 2) Adjust delimiter to comma if file ends with csv
+    const opts = {...csvParseOptions}
+    if (name.endsWith("csv")) opts.delimiter = ','
+    // 3) Create stream buffer and start parsing data
     return new Promise((resolve, reject) => {
-        streamifier
-            .createReadStream(buffer)
-            .pipe(csv.parse(csvParseOptions))
-            // error handling while stream buffering. N/A with memory backed buffers!?
+        streamifier.createReadStream(buffer).pipe(csv.parse(opts))
+
+            // 3.1 error handling while stream buffering. N/A with memory backed buffers!?
             .on('error', (error) => {
                 status = 'error'
-                messages.push('Stream read error:' + error)
-                // return a reject
-                reject({ status, data, messages })
+                if (error.message.includes('Parse Error')) message = 'Could not parse input file. Not a CSV format?'
+                else if (error.message.includes('column header mismatch')) message = 'Column mismatch in the input file.'
+                else {
+                    logger.warn('FUUUUUUUUCK', error)
+                    message = 'Unknown error, please contact the administrator.'
+                }
+                reject({ status, data, message })
             })
-            // In each data row, sanitise empty cells into undefned before storing
+
+            // 3.2 In each data row, sanitise empty cells into undefned before storing
             .on('data', (row) => {
                 // sanitise empty values to undefined
                 let obj = {}
@@ -63,11 +73,16 @@ exports.parseTSV = (buffer) => {
                 })
                 data.push(obj)
             })
-            // add a final message to the import process
+
+            // 3.3 Handle invalid data rows
+            .on('data-invalid', () => {
+                status = 'warning'
+            })
+
+            // 3.3 Add a final message to the import process
             .on('end', (rowCount) => {
-                status = 'success'
-                messages.push(`Parsed ${rowCount} rows, accepting ${data.length} entries.`)
-                resolve({ status, data, messages })
+                message = `Parsed ${rowCount} rows, accepting ${data.length} entries.`
+                resolve({ status, data, message })
             })
     })
 }
@@ -75,60 +90,35 @@ exports.parseTSV = (buffer) => {
 //
 // Instantiate projects from imported JS objects
 //
-exports.createProjects = (results) => {
-    // 1) Return a promise
-    return new Promise((resolve, reject) => {
-        // 2) Create return data structures
-        let { status, data, messages } = results
-        const projects = []
+exports.createProjects = async (data, prevStatus) => {
         let numFailed = 0
-        // 3) Wait for all async data.map() calls to resolve
-        Promise.all(
-            data.map(async (prj, i) => {
-                // 3.1) Create project
-                try {
-                    await Project.create({
-                        acronym: prj.acronym,
-                        call: prj.call,
-                        rcn: prj.rcn,
-                        type: prj.type,
-                        startDate: moment(prj.startDate, 'MMM YYYY'),
-                        endDate: moment(prj.endDate, 'MMM YYYY').endOf('month'),
-                        budget: parseCurrency(prj.totalCost).value,
-                        title: prj.title,
-                        teaser: prj.teaser,
-                        url: prj.url,
-                        fundingBodyLink: prj.fundingBodyLink,
-                        // cwurl: prj.cwurl,
-                    }).then(
-                        (data) => {
-                            projects.push(data)
-                            console.log('SUCCESS', data.acronym)
-                        },
-                        (err) => {
-                            console.log('FAIL', prj.acronym)
-                            messages.push(
-                                `Error while importing project '${prj.acronym}' at row ${i + 1}: '${
-                                    err.message
-                                }'`
-                            )
-                            numFailed++
-                        }
-                    )
-                } catch (err) {
-                    console.log('ERR', prj.acronym)
-                    messages.push(
-                        `Error while importing project '${prj.acronym}' at row ${i + 1}: '${
-                            err.message
-                        }'`
-                    )
-                    numFailed++
-                }
-            })
-            // then resolve the outer promise with all the results
-        ).then(() => {
-            messages.push(`Imported ${projects.length} projects, ${numFailed} projects failed.`)
-            resolve({ status, projects, messages })
-        })
-    })
+        let numSuccess = 0
+        let status = prevStatus
+        let message = ''
+        for (const prj of data) {
+            try {
+                // eslint-disable-next-line no-await-in-loop
+                await Project.create({
+                    acronym: prj.acronym,
+                    rcn: prj.rcn,
+                    title: prj.title,
+                    teaser: prj.teaser,
+                    startDate: moment(prj.startDate, 'MMM YYYY'),
+                    endDate: moment(prj.endDate, 'MMM YYYY').endOf('month'),
+                    call: prj.call?prj.call:undefined,
+                    type: prj.type?prj.type:undefined,
+                    totalCost: prj.totalCost?parseCurrency(prj.totalCost).value:undefined,
+                    url: prj.url?prj.url:undefined,
+                    fundingBodyLink: prj.fundingBodyLink?prj.fundingBodyLink:undefined,
+                    hub_url: prj.hubUrl?prj.hubUrl:undefined
+                })
+                numSuccess++
+            } catch (err) {
+                numFailed++
+                status = 'warning'
+            }
+        }
+        if (status == 'success') message = `${numSuccess} projects successfully imported.`
+        else message = `${numSuccess} projects successfully imported, but ${numFailed} had errors and were not imported.`
+        return {status, data: [], message}
 }

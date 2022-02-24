@@ -126,25 +126,21 @@ exports.addMTRLScore = async (num_id, data) => {
     return project
 }
 
-exports.importProjects = async (buffer) => {
-    // 1) Read the buffer into an array of objects
-
-    console.log('hello1')
-    let result = await importHelper.parseTSV(buffer)
-    console.log('hello2')
-
-    if (result.status !== 'success') {
-        throw new AppError(`Error parsing import file: ${result.messages[0]}`, 400)
-    }
-
-    // 2) Instantiate the data into Project documents (and store them right away)
-    result = await importHelper.createProjects(result)
-
-    // 3) Reverse the order of messages in result
-    result.messages.reverse()
-
-    // 4) return the result
-    return result
+exports.importProjects = (buffer, name) => {
+    return new Promise((resolve, reject) => {
+        // 1) Read the buffer into an array of objects
+        importHelper.parseCSV(buffer, name).then((result) => {
+            // 2) Now instantiate the projects. 
+            // At this point, status MAY be warning, indicating that not all rows were imported. Keep that for later.
+            return importHelper.createProjects(result.data, result.status) // creates a new result
+        }).then((result) => {
+            // 3) Call went through (though possibly with errors)
+            resolve(result)
+        }).catch((result) => {
+            // 4) reject the result as some unrecoverable error, i.e. no projects importet.
+            reject(result)
+        })
+    })
 }
 
 exports.getMatchingProjects = async (filter) => {
