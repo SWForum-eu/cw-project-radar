@@ -22,16 +22,6 @@ const createProject = async (prjData) => {
             window.setTimeout(() => {
                 location.assign('/admin/project')
             }, 1500)
-
-            // console.log(res.data)
-
-            // const temp_id = res.data.doc.num_id
-
-            // console.log('temp_id: ', temp_id)
-
-            // addClassification(temp_id, classification, classification_2nd, classifiedBy, null)
-
-            // addScore(temp_id, mrl, trl, scoringDate, description)
         }
 
     } catch (err) {
@@ -115,22 +105,24 @@ const updateProject = async (prjData) => {
 // IMPORT PROJECTS FILE
 //
 const importProjects = async (data) => {
-    try {
-        const res = await axios({
-            method: 'PATCH',
-            url: '/api/v1/project',
-            data,
-        })
-
-        if (res.data.status === 'success') {
-            showAlert('success', res.data.messages.join('<br/>'))
+    axios.patch('/api/v1/project',data)
+    .then((res) => {
+        showAlert(res.data.status, res.data.message)
+        window.setTimeout(() => {
+            location.assign('/admin/project')
+        }, 5000)
+    })
+    .catch((err) => {
+        if (err.response) {
+            const { data } = err.response
+            showAlert(data.status, data.message)
+        } else if (err.request) {
+            showAlert('error', 'No response from the server.')
             window.setTimeout(() => {
                 location.assign('/admin/project')
             }, 5000)
         }
-    } catch (err) {
-        showAlert('error', err.response.data.message)
-    }
+    })
 }
 
 //
