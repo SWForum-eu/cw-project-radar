@@ -77,7 +77,7 @@ block content
 
     .import-projects-form: form(action="/api/v1/project" method="patch" enctype="multipart/form-data" ).form-import-proejcts#import-projects-form
         .form__group.form__file-upload
-              input.form__upload(type='file', accept='text/tab-separated-values', id='importfile', name='importfile')
+              input.form__upload(type='file', accept='text/csv', id='importfile', name='importfile')
         .form__group
             button.btn#btn--import-projects Import projects
 

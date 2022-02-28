@@ -19,34 +19,40 @@ const v = require('../utils/validator')
 //
 // store all uploads in memory
 const multerStorage = multer.memoryStorage()
-// filter out anything that is not text/csv or text/tsv
-const multerFilter = (req, file, cb) => {
-//    console.log(file.mimetype)
-//    if (file.mimetype.startsWith('text')) {
-        cb(null, true)
-//    } else {
-//        cb(new AppError('Not a text file!', 400), false)
-//    }
-}
+
 // multer middleware to store multipart import-file data in the request object
 const upload = multer({
     storage: multerStorage,
-    fileFilter: multerFilter,
 })
 
 exports.importFile = upload.single('importfile')
 // actually imports the projects
 exports.importProjects = catchAsync(async (req, res, next) => {
+
     // 1) Check if there is a file in the req object
-    if (!req.file) return next()
+    if (!req.file) {
+        res.status(400).json({
+            status: 'error',
+            message: 'No input file provided.'
+        })
+        return
+    } 
 
-    // 2) Pull the file's buffer and pass it onto the project controller
-    const result = await projectController.importProjects(req.file.buffer)
-
-    // 3 If all ok return a success / 200 OK response
-    res.status(201).json({
-        status: 'success',
-        messages: result.messages,
+    // 2) Let the project controller import the files
+    projectController.importProjects(req.file.buffer, req.file.originalname)
+    .then((result) => {
+        // // 3) If all ok return a success / 200 OK response
+        res.status(201).json({
+            status: result.status,
+            message: result.message
+        })
+        return
+    }).catch((err) => {
+        res.status(400).json({
+            status: 'error',
+            message: err.message
+        })
+        return
     })
 })
 
