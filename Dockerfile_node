@@ -1,47 +1,32 @@
-#############
-#  BUILDER  #
-#############
-FROM node:13.10 AS builder
+FROM node:16-alpine3.14
 
-# set the workdir
-WORKDIR /home/node/cw
+WORKDIR /home/node/swforum-radar
 
-# Install Node dependencies
 COPY package*.json ./
+
 RUN npm install
 
-# copy the source code
 COPY . .
-## build the distro
-RUN npm run build
 
+RUN npm install -g concurrently
 
-#############
-#  RELEASE  #
-#############
-FROM node:13.10-slim
+#USER node:node
 
-ENV TZ=Europe/Brussels
+#RUN mkdir /home/node/swforum-radar
 
-# set the user
-USER node:node
-RUN mkdir /home/node/cw-project-radar
-
-# set the workdir
-WORKDIR /home/node/cw-project-radar
+#WORKDIR /home/node/swforum-radar
 RUN mkdir logs
 
 # copy the distrobution files
-COPY --chown=node:node --from=builder /home/node/cw/dist/client ./client
-COPY --chown=node:node --from=builder /home/node/cw/dist/common ./common
-COPY --chown=node:node --from=builder /home/node/cw/dist/server ./server
-COPY --chown=node:node --from=builder /home/node/cw/dist/.env .
-COPY --chown=node:node --from=builder /home/node/cw/dist/.env ./.env.prod
-COPY --chown=node:node --from=builder /home/node/cw/package.json .
-COPY --chown=node:node --from=builder /home/node/cw/node_modules ./node_modules
-COPY --chown=node:node --from=builder /home/node/cw/scripts ./scripts
-
+#COPY --chown=node:node --from=builder /home/node/sw/dist/client ./client
+#COPY --chown=node:node --from=builder /home/node/sw/dist/common ./common
+#COPY --chown=node:node --from=builder /home/node/sw/dist/server ./server
+#COPY --chown=node:node --from=builder /home/node/sw/dist/.env .
+#COPY --chown=node:node --from=builder /home/node/sw/dist/.env ./.env.prod
+#COPY --chown=node:node --from=builder /home/node/sw/package.json .
+#COPY --chown=node:node --from=builder /home/node/sw/node_modules ./node_modules
+#COPY --chown=node:node --from=builder /home/node/sw/scripts ./scripts
 
 EXPOSE 8080
 
-CMD ["npm", "start"]
+CMD ["concurrently","npm run dev:watch:pug", "npm run dev:watch:js", "npm run dev"]
