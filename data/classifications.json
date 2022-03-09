@@ -1,0 +1,545 @@
+[{
+	"_id": {
+		"$oid": "6214f25ed8ea3d3f2cfa38e3"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f25ed8ea3d3f2cfa38dd"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Platforms",
+	"changeSummary": "FASTEN",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f2a2d8ea3d3f2cfa3901"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f2a2d8ea3d3f2cfa38fb"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "DECODE",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f2f3d8ea3d3f2cfa391a"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f2f3d8ea3d3f2cfa3914"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Languages & Frameworks",
+	"changeSummary": "UNI",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f338d8ea3d3f2cfa3944"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f338d8ea3d3f2cfa393e"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "",
+	"changeSummary": "IU",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f36fd8ea3d3f2cfa395a"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f36fd8ea3d3f2cfa3954"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f3aad8ea3d3f2cfa3972"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f3aad8ea3d3f2cfa396c"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Languages & Frameworks",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f3f3d8ea3d3f2cfa398c"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f3f3d8ea3d3f2cfa3986"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f437d8ea3d3f2cfa39a8"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f437d8ea3d3f2cfa39a2"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f473d8ea3d3f2cfa39c6"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f473d8ea3d3f2cfa39c0"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f4b1d8ea3d3f2cfa39e6"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f4b1d8ea3d3f2cfa39e0"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Platforms",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f4ecd8ea3d3f2cfa3a08"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f4ecd8ea3d3f2cfa3a02"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f54dd8ea3d3f2cfa3a68"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f54dd8ea3d3f2cfa3a62"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Languages & Frameworks",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f58dd8ea3d3f2cfa3a8e"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f58dd8ea3d3f2cfa3a88"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f5c8d8ea3d3f2cfa3ab6"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f5c8d8ea3d3f2cfa3ab0"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f605d8ea3d3f2cfa3ae0"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f605d8ea3d3f2cfa3ada"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Platforms",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f640d8ea3d3f2cfa3b0c"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f640d8ea3d3f2cfa3b06"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f677d8ea3d3f2cfa3b3a"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f677d8ea3d3f2cfa3b34"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Platforms",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f6b9d8ea3d3f2cfa3b6a"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f6b9d8ea3d3f2cfa3b64"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Platforms",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f6eed8ea3d3f2cfa3b9c"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f6eed8ea3d3f2cfa3b96"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Languages & Frameworks",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f72ed8ea3d3f2cfa3bd0"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f72ed8ea3d3f2cfa3bca"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Platforms",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f775d8ea3d3f2cfa3c06"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f775d8ea3d3f2cfa3c00"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f7b9d8ea3d3f2cfa3c3e"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f7b9d8ea3d3f2cfa3c38"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f967d8ea3d3f2cfa3fa4"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f967d8ea3d3f2cfa3f9e"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Languages & Frameworks",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f9a3d8ea3d3f2cfa4010"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f9a3d8ea3d3f2cfa400a"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Platforms",
+	"changeSummary": "I",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f9e0d8ea3d3f2cfa4082"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214f9e0d8ea3d3f2cfa407c"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fa20d8ea3d3f2cfa40d3"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fa20d8ea3d3f2cfa40cd"
+	},
+	"classification": "Tools & Techniques",
+	"secondary_classification": "Platforms",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fa73d8ea3d3f2cfa4151"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fa73d8ea3d3f2cfa414b"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Platforms",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fad5d8ea3d3f2cfa4183"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fad5d8ea3d3f2cfa417d"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fb19d8ea3d3f2cfa420d"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fb19d8ea3d3f2cfa4207"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fb7fd8ea3d3f2cfa429d"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fb7fd8ea3d3f2cfa4297"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fbd2d8ea3d3f2cfa4333"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fbd2d8ea3d3f2cfa432d"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Platforms",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fc0ed8ea3d3f2cfa436d"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fc0ed8ea3d3f2cfa4367"
+	},
+	"classification": "Languages & Frameworks",
+	"secondary_classification": "Tools & Techniques",
+	"changeSummary": "oi",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fc63d8ea3d3f2cfa440f"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fc63d8ea3d3f2cfa4409"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "",
+	"changeSummary": "i",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fcbdd8ea3d3f2cfa4556"
+	},
+	"classifiedOn": {
+		"$date": "2022-02-22T14:19:35.919Z"
+	},
+	"classifiedBy": "SWForum",
+	"project": {
+		"$oid": "6214fcbdd8ea3d3f2cfa4550"
+	},
+	"classification": "Platforms",
+	"secondary_classification": "Platforms",
+	"changeSummary": "i",
+	"__v": 0
+}]
+

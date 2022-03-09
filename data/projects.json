@@ -1,0 +1,648 @@
+[{
+	"_id": {
+		"$oid": "6214f25ed8ea3d3f2cfa38dd"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "FASTEN",
+	"rcn": 825328,
+	"title": "Fine-Grained Analysis of Software Ecosystems as Networks",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T00:00:00Z"
+	},
+	"call": "ICT-16-2018",
+	"type": "IA",
+	"url": "https://www.fasten-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825328",
+	"teaser": "The aim is to make software ecosystems \nmore robust by making package management more \nintelligent. This objective relies on the Fine-Grained Call \nGraph (FGCG) method that serves to analyze i) security \nvulnerability propagation, ii) licensing compliance, and \niii) dependency risk profiles and processing. To \nfacilitate adoption, FASTEN applies the approach to \npopular package managers for Java, C, and Python \nprogramming languages.",
+	"num_id": 5,
+	"createDate": {
+		"$date": "2022-02-22T14:25:34Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f2a2d8ea3d3f2cfa38fb"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "DECODER",
+	"rcn": 824231,
+	"title": "DEveloper  COmpanion for  Documented and  annotatEd code  Reference",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T00:00:00Z"
+	},
+	"call": "ICT-16-2018",
+	"type": "RIA",
+	"url": "https://www.decoder-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/824231",
+	"teaser": "It consists of a methodology and an open \nsource Integrated Development Environment to \nimprove the efficiency of software development and \nmaintenance, and to assure the quality of software in \nmedium criticality systems, such as in IoT, cloud \ncomputing and HPC. The IDE combines information \nfrom different sources through formal and semi-formal \nmodels to deliver software project intelligence that \nshortens the learning curve of software programmers \nand maintainers and increases their productivity. With \nthis approach developers deliver high quality code that \nare more secure and better aligned with requirements \nand maintainers know immediately what has been \ndone, how and with which tools.",
+	"num_id": 6,
+	"createDate": {
+		"$date": "2022-02-22T14:26:42Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f2f3d8ea3d3f2cfa3914"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "UNICORE",
+	"rcn": 825377,
+	"title": "UNICORE",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T00:00:00Z"
+	},
+	"call": "ICT-16-2018",
+	"type": "IA",
+	"url": "https://unicore-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/824231",
+	"teaser": "A Common Code Base and Toolkit for Deployment of Applications to Secure and Reliable Virtual Execution Environments",
+	"num_id": 7,
+	"createDate": {
+		"$date": "2022-02-22T14:28:03Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f338d8ea3d3f2cfa393e"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "RADON",
+	"rcn": 825040,
+	"title": "Rational  decomposition  and orchestration  for serverless  computing",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-06-30T00:00:00Z"
+	},
+	"type": "RIA",
+	"url": "https://radon-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825040",
+	"teaser": "The project aims at developing a DevOps \nframework to address the creation and management of \nmicroservices-based applications that can optimally\nexploit serverless computing technologies. The final \ngoal is to broaden the adoption of serverless computing \ntechnologies within the European software industry. \nThe methodology will strive to tackle complexity, \nharmonize the abstraction and actuation of action\u0002trigger rules, avoid FaaS lock-in, and optimize \ndecomposition and reuse through model-based FaaS\u0002enabled development and orchestration",
+	"num_id": 8,
+	"createDate": {
+		"$date": "2022-02-22T14:29:12Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f36fd8ea3d3f2cfa3954"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "SODALITE",
+	"rcn": 825480,
+	"title": "SOftware Defined  AppLication  Infrastructures  managemenT and  Engineering",
+	"startDate": {
+		"$date": "2019-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-01-31T00:00:00Z"
+	},
+	"call": "ICT-16-2018",
+	"type": "RIA",
+	"url": "https://www.sodalite.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825480",
+	"teaser": "The project provides tools for developers \nand infrastructure operators that abstract their \napplications and infrastructure requirements to \nfacilitate simpler and faster development and \noperation and execution of diverse applications over \ndiverse software-defined, high-performance cloud \ninfrastructures.",
+	"num_id": 9,
+	"createDate": {
+		"$date": "2022-02-22T14:30:07Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f3aad8ea3d3f2cfa396c"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "DEEPHEALTH",
+	"rcn": 825111,
+	"title": "DEEPHEALTH",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T00:00:00Z"
+	},
+	"call": "ICT-11-2018-2019",
+	"type": "IA",
+	"url": "https://deephealth-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825111",
+	"teaser": "Deep-Learning \nand HPC to Boost \nBiomedical \nApplications for \nHealth",
+	"num_id": 10,
+	"createDate": {
+		"$date": "2022-02-22T14:31:06Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f3f3d8ea3d3f2cfa3986"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "IoTWINS",
+	"rcn": 857191,
+	"title": "IoTWINS",
+	"startDate": {
+		"$date": "2019-09-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-08-31T00:00:00Z"
+	},
+	"call": "ICT-11-2018-2019 ",
+	"type": "IA",
+	"url": "https://www.iotwins.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/857191",
+	"teaser": "Distributed Digital \nTwins for \nindustrial SMEs: a \nbig-data platform\n",
+	"num_id": 11,
+	"createDate": {
+		"$date": "2022-02-22T14:32:19Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f437d8ea3d3f2cfa39a2"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "CYBELE",
+	"rcn": 825355,
+	"title": "CYBELE",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T00:00:00Z"
+	},
+	"call": "ICT-11-2018-2019",
+	"type": "IA",
+	"url": "https://www.cybele-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825355",
+	"teaser": "Fostering \nprecision \nagriculture and \nlivestock farming \nthrough secure \naccess to large\u0002scale HPC-enabled \nvirtual industrial \nexperimentation \nenvironment \nempowering \nscalable big data \nanalytics",
+	"num_id": 12,
+	"createDate": {
+		"$date": "2022-02-22T14:33:27Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f473d8ea3d3f2cfa39c0"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "EVOLVE",
+	"rcn": 825061,
+	"title": "EVOLVE",
+	"startDate": {
+		"$date": "2018-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-11-30T00:00:00Z"
+	},
+	"call": "ICT-11-2018-2019",
+	"type": "IA",
+	"url": "https://www.evolve-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825061",
+	"teaser": "HPC and \nCloud-enhanced \nTestbed for \nExtracting Value \nfrom Diverse Data \nat Large Scale\n",
+	"num_id": 13,
+	"createDate": {
+		"$date": "2022-02-22T14:34:27Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f4b1d8ea3d3f2cfa39e0"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "LEXIS",
+	"rcn": 825532,
+	"title": "Large-scale  EXecution for  Industry & Society",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T00:00:00Z"
+	},
+	"call": "ICT-11-2018-2019",
+	"type": "IA",
+	"url": "https://lexis-project.eu/web/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/",
+	"teaser": "The project is building an advanced \nengineering platform at the confluence of HPC, Cloud \nand Big Data which will leverage large-scale, \ngeographically distributed resources from existing HPC \ninfrastructures, employ Big Data analytics solutions and \naugment them with Cloud services. It will be validated \nin the pilots - in the industrial and scientific sectors \n(Aeronautics, Earthquake and Tsunami, Weather and \nClimate)",
+	"num_id": 14,
+	"createDate": {
+		"$date": "2022-02-22T14:35:29Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f4ecd8ea3d3f2cfa3a02"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "INFINITECH",
+	"rcn": 856632,
+	"title": "INFINITECH",
+	"startDate": {
+		"$date": "2019-10-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-12-31T00:00:00Z"
+	},
+	"call": "ICT-11-2018-2019",
+	"type": "IA",
+	"url": "https://www.infinitech-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/825480",
+	"teaser": "Tailored IoT & \nBigData \nSandboxes and \nTestbeds for \nSmart, \nAutonomous and \nPersonalized \nServices in the \nEuropean Finance \nand Insurance \nServices \nEcosystem\n",
+	"num_id": 15,
+	"createDate": {
+		"$date": "2022-02-22T14:36:28Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f54dd8ea3d3f2cfa3a62"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "UP2DATE",
+	"rcn": 871465,
+	"title": "UP2DATE",
+	"startDate": {
+		"$date": "2020-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-12-31T00:00:00Z"
+	},
+	"call": "ICT-01-2019 ",
+	"type": "RIA",
+	"url": "https://h2020up2date.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/871465",
+	"teaser": "Intelligent \nsoftware-UPDATE \ntechnologies for \nsafe and secure \nmixed-criticality \nand high \nperformance \ncyber physical \nsystems",
+	"num_id": 16,
+	"createDate": {
+		"$date": "2022-02-22T14:38:05Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f605d8ea3d3f2cfa3ada"
+	},
+	"tags": [
+		"algebricSymbolicManipulation",
+		"modelingSimulation",
+		"networkService"
+	],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "CPSoSaware",
+	"rcn": 871738,
+	"title": "CPSoSaware",
+	"startDate": {
+		"$date": "2020-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-12-31T00:00:00Z"
+	},
+	"call": "ICT-01-2019 ",
+	"type": "RIA",
+	"url": "https://cpsosaware.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/871738",
+	"teaser": "Cross-layer \ncognitive \noptimization tools \n& methods for the \nlifecycle support \nof dependable \nCPSoS",
+	"num_id": 19,
+	"createDate": {
+		"$date": "2022-02-22T14:41:09Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f967d8ea3d3f2cfa3f9e"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "PLEDGER",
+	"rcn": 871536,
+	"title": "PLEDGER",
+	"startDate": {
+		"$date": "2019-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-12-30T00:00:00Z"
+	},
+	"call": "ICT-15-2019-2020 ",
+	"type": "RIA",
+	"url": "http://www.pledger-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/871536",
+	"teaser": "Performance \noptimization and \nedge computing \norchestration for \nenhanced \nexperience and \nQuality of Service",
+	"num_id": 27,
+	"createDate": {
+		"$date": "2022-02-22T14:55:35Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f9a3d8ea3d3f2cfa400a"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "FogProtect",
+	"rcn": 871525,
+	"title": "FogProtect",
+	"startDate": {
+		"$date": "2020-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-12-31T00:00:00Z"
+	},
+	"call": "ICT-15-2019-2020 ",
+	"type": "RIA",
+	"url": "https://fogprotect.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/871525",
+	"teaser": "Protecting \nSensitive Data in \nthe Computing \nContinuum",
+	"num_id": 28,
+	"createDate": {
+		"$date": "2022-02-22T14:56:35Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214f9e0d8ea3d3f2cfa407c"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "FOCETA",
+	"rcn": 956123,
+	"title": "Foundations for  continuous  engineering of  trustworthy  autonomy",
+	"startDate": {
+		"$date": "2020-10-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-09-30T00:00:00Z"
+	},
+	"call": "ICT-50-2020",
+	"type": "RIA",
+	"url": "http://www.foceta-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/956123",
+	"teaser": "The project is developing the foundation \nfor continuous engineering of trustworthy learning\u0002enabled autonomous systems integrating data-driven \nand model-based engineering. A new system, \ngrounded on open source tools with open data\u0002exchange standards, will be demonstrated with the \nmost demanding applications such as urban driving \nautomation and intelligent medical devices, to prove \nviability, scalability, and safety.\n",
+	"num_id": 29,
+	"createDate": {
+		"$date": "2022-02-22T14:57:36Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fa20d8ea3d3f2cfa40cd"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "ELEGANT",
+	"rcn": 957286,
+	"title": "ELEGANT",
+	"startDate": {
+		"$date": "2021-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-12-31T00:00:00Z"
+	},
+	"call": "ICT-50-2020",
+	"type": "RIA",
+	"url": "https://www.elegant-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957286",
+	"teaser": "Secure \nand Seamless \nEdge-to-Cloud \nAnalytics",
+	"num_id": 30,
+	"createDate": {
+		"$date": "2022-02-22T14:58:40Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fa73d8ea3d3f2cfa414b"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "XANDAR",
+	"rcn": 957210,
+	"title": "X-by\u0002Construction  Design framework  for Engineering  Autonomous &  Distributed Real\u0002time Embedded  Software Systems",
+	"startDate": {
+		"$date": "2021-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-12-31T00:00:00Z"
+	},
+	"call": "ICT-50-2020",
+	"type": "RIA",
+	"url": "https://xandar-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957210",
+	"teaser": "The next generation of networked \nembedded systems (ES) requires fast prototyping and \nhigh performance in addition to its key properties of \nreliability and safety. However, the dependence of the \ncurrent autonomous systems trend on machine \nlearning and artificial intelligence applications in \ncombination with fail-operational requirements makes \nthe verification and validation of ES a challenging \nendeavour. The project is delivering a mature software \ntoolchain that fulfils the industrial requirements for \nrapid prototyping of interoperable and autonomous ES.\nA model-based system architecture to support novel \nautomatic model synthesis and software parallelisation \ntechniques will be used to achieve the objectives of a \nnew real-time, safety- and security-by-construction \nparadigm.\n",
+	"num_id": 31,
+	"createDate": {
+		"$date": "2022-02-22T15:00:03Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fad5d8ea3d3f2cfa417d"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "COSMOS",
+	"rcn": 957254,
+	"title": "COSMOS",
+	"startDate": {
+		"$date": "2021-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-12-31T00:00:00Z"
+	},
+	"type": "RIA",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957254",
+	"teaser": "DevOps \nfor Complex \nCyber-physical \nSystems",
+	"num_id": 32,
+	"createDate": {
+		"$date": "2022-02-22T15:01:41Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fb19d8ea3d3f2cfa4207"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "VeriDevOps",
+	"rcn": 957212,
+	"title": "VeriDevOps",
+	"startDate": {
+		"$date": "2020-10-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-09-30T00:00:00Z"
+	},
+	"type": "RIA",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957212",
+	"teaser": "DevOps helps increase an organisation’s \nability to deliver applications and services at high \nvelocity. It aims to shorten the systems development \nlife cycle and provide continuous delivery with high\u0002quality software. Current systems development \npractices are increasingly based on off-the-shelf and \nlegacy components, which make such systems prone to \nsecurity vulnerabilities. Since DevOps is promoting \nfrequent software deliveries, verification artefacts \nshould be updated in a timely fashion to cope with the \npace of the process. The project plans to develop \nmethods and tools that provide a faster feedback loop\nfor verifying the security requirements –\nconfidentiality, integrity, availability, authentication \nand authorisation – in large-scale cyber-physical \nsystems",
+	"num_id": 33,
+	"createDate": {
+		"$date": "2022-02-22T15:02:49Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fb7fd8ea3d3f2cfa4297"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "PIACERE",
+	"rcn": 101000162,
+	"title": "PIACERE",
+	"startDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-11-30T00:00:00Z"
+	},
+	"call": "ICT-50-2020",
+	"type": "RIA",
+	"url": "https://www.piacere-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/101000162",
+	"teaser": "The role of software management in \noperating infrastructures is increasing; automation, \ncloud, and software-defined networking boost the \nspeed and security of operations. The DevOps \nphilosophy already offers a set of practices and tools \nthat combine software development and IT operations \nto shorten the development life cycle and provide \ncontinuous delivery. However, there is a need for tools \nto manage the whole life cycle of infrastructure as code \n(IaC), with a special focus on trustworthiness and \nsecurity aspects throughout the IaC life cycle. The \nproject is developing the tools, techniques and \nmethods to allow organisations to develop and operate \nIaC through DevSecOps practices as they would do with \ntraditional code.",
+	"num_id": 34,
+	"createDate": {
+		"$date": "2022-02-22T15:04:31Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fbd2d8ea3d3f2cfa432d"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "ASSIST-IoT",
+	"rcn": 957258,
+	"title": "Architecture for  Scalable, Self-*,  human-centric,  Intelligent,  Secure, and  Tactile next  generation IoT",
+	"startDate": {
+		"$date": "2020-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-10-31T00:00:00Z"
+	},
+	"call": "ICT-56-2020",
+	"type": "RIA",
+	"url": "https://assist-iot.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957258",
+	"teaser": "The project is developing the reference \narchitecture in which intelligence can be distributed \namong nodes by implementing artificial intelligence \nand machine learning close to data generation and \nactuation, and hyperconnecting nodes, in the edge\u0002cloud continuum, over softwarised smart networks.",
+	"num_id": 35,
+	"createDate": {
+		"$date": "2022-02-22T15:05:54Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fc0ed8ea3d3f2cfa4367"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "IntellIoT",
+	"rcn": 957218,
+	"title": "IntellIoT",
+	"startDate": {
+		"$date": "2020-10-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-09-30T00:00:00Z"
+	},
+	"call": "ICT-56-2020 ",
+	"type": "RIA",
+	"url": "https://intelliot.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957218",
+	"teaser": "Intelligent, \ndistributed, \nhuman-centered \nand trustworthy \nIoT environments",
+	"num_id": 36,
+	"createDate": {
+		"$date": "2022-02-22T15:06:54Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "6214fcbdd8ea3d3f2cfa4550"
+	},
+	"tags": [],
+	"hasClassifications": true,
+	"hasScores": true,
+	"acronym": "TERMINET",
+	"rcn": 957406,
+	"title": "nexT  gEneRation sMart  INterconnectEd  ioT",
+	"startDate": {
+		"$date": "2020-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-11-30T00:00:00Z"
+	},
+	"call": "ICT-56-2020 ",
+	"type": "RIA",
+	"url": "https://terminet-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/id/957406",
+	"teaser": "Based on cutting-edge technologies such \nas software-defined networking (SDN), multiple-access \nedge computing, and virtualisation for next-generation \nIoT, the project will develop a novel next-generation \nreference architecture. Its main aim is to simplify the \nconnection of a vast number of different devices \nthrough a flexible SDN-enabled middleware layer. To \nimprove supply chain processes, the project will design \nan IoT-driven decentralised and distributed blockchain \nframework within manufacturing. TERMINET’s \napproach will be tested in real-life situations such as \nenergy, smart buildings, smart farming, healthcare, and \nmanufacturing.",
+	"num_id": 38,
+	"createDate": {
+		"$date": "2022-02-22T15:09:49Z"
+	},
+	"__v": 0
+}]
+
