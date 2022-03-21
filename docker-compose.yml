@@ -28,7 +28,7 @@ services:
         networks:
             swforum-radar-nw:
     drupal:
-        image: swradar-drupal
+        image: drupal
         container_name: drupal
         init: true
         ports: 
