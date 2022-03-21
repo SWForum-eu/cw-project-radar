@@ -8,6 +8,7 @@ const { Classification } = require('../models/classificationModel')
 const { MTRLScore } = require('../models/mtrlScoreModel')
 const { Project } = require('../models/projectModel')
 const importHelper = require('./projects/projectsImportHelper')
+const { logger } = require('../utils/logger')
 
 //
 // get by num ID
@@ -84,13 +85,14 @@ exports.getByRCN = async (rcn) => {
 //
 exports.addCategory = async (num_id, data) => {
     // 1) Get the corresponding project
-    const project = await this.getByNumId(num_id)
+    const project = await this.getByRCN(num_id)
+
     if (!project) throw new AppError(`No project found with id ${num_id}`, 404)
 
     // 2) Create new classification object
     await Classification.create({
         classification: data.classification,
-        secondary_classification: data.classification_2nd,
+        secondary_classification: data.secondary_classification,
         project: project._id,
         classifiedOn: data.classifiedOn,
         classifiedBy: data.classifiedBy,
@@ -108,7 +110,7 @@ exports.addCategory = async (num_id, data) => {
 //
 exports.addMTRLScore = async (num_id, data) => {
     // 1) Get the corresponding project
-    const project = await this.getByNumId(num_id)
+    const project = await this.getByRCN(num_id)
     if (!project) throw new AppError(`No project found with id ${num_id}`, 404)
 
     // 2) Create new score object
