@@ -28,5 +28,6 @@ RUN mkdir logs
 #COPY --chown=node:node --from=builder /home/node/sw/scripts ./scripts
 
 EXPOSE 8080
+EXPOSE 80
 
 CMD ["concurrently","npm run dev:watch:pug", "npm run dev:watch:js", "npm run dev"]

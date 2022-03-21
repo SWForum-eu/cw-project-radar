@@ -10,13 +10,34 @@ services:
         init: true
         ports:
             - 8081:8080
+            - 8082:80
+        
+        privileged: true
         networks:
             swforum-radar-nw:
         depends_on:
             - mongo
         volumes:
             - $PWD/:/home/node/swforum-radar
-
+    CW_MYSQL:
+        image: mysql
+        container_name: mysql
+        init: true
+        ports:
+            - 3306:3306
+        networks:
+            swforum-radar-nw:
+    drupal:
+        image: swradar-drupal
+        container_name: drupal
+        init: true
+        ports: 
+            - 8080:80
+        privileged: true
+        networks:
+            swforum-radar-nw:
+        depends_on:
+            - CW_MYSQL 
     mongo:
         build:
             context: .
