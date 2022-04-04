@@ -20,7 +20,7 @@ main {
 header.header {
     width: 100%;
     background-position: 50% 35%;
-    background-image: url('/img/header_background.jpg') !important;
+    background-image: url('/img/header_background_blue.jpg') !important;
 }
 
 /*
@@ -109,7 +109,7 @@ header.header {
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(150, 46, 36, 0.73);
+    background-color: #A0C2E9;
 }
 
 .menubar .menu-right {
