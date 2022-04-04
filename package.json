@@ -17,6 +17,8 @@
         "devwin": "copy .env.dev .env && nodemon src/server/server.js",
         "dev:watch:pug": "pug -O {module:true} -c -w --name-after-file -o src/client/views src/client/views",
         "dev:watch:js": "parcel watch --dist-dir src/client src/client/js/*.js",
+        "prod:pug": "pug -O {module:true} -c --name-after-file -o src/client/views src/client/views",
+        "prod:js": "parcel --dist-dir src/client src/client/js/*.js",
         "start": "cp .env.prod .env && node src/server/server.js",
         "startwin": "copy .env.prod .env && node server/server.js",
         "debug": "ndb server.js",
