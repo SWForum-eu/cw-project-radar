@@ -8,16 +8,16 @@ RUN npm install
 
 COPY . .
 
-RUN npm install -g concurrently
+#RUN npm install -g concurrently
 
 #USER node:node
 
 #RUN mkdir /home/node/swforum-radar
 
 #WORKDIR /home/node/swforum-radar
-RUN mkdir logs
+#RUN mkdir logs
 
-# copy the distrobution files
+# copy the distribution files
 #COPY --chown=node:node --from=builder /home/node/sw/dist/client ./client
 #COPY --chown=node:node --from=builder /home/node/sw/dist/common ./common
 #COPY --chown=node:node --from=builder /home/node/sw/dist/server ./server
@@ -30,4 +30,4 @@ RUN mkdir logs
 EXPOSE 8080
 EXPOSE 80
 
-CMD ["concurrently","npm run prod:pug", "npm run prod:js", "npm start"]
+CMD ["npm", "start"]
