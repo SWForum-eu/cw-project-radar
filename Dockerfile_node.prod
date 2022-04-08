@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-#RUN npm install -g concurrently
+RUN npm install -g concurrently
 
 #USER node:node
 
@@ -28,6 +28,5 @@ COPY . .
 #COPY --chown=node:node --from=builder /home/node/sw/scripts ./scripts
 
 EXPOSE 8080
-EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["concurrently","npm run prod:pug", "npm run prod:js", "npm start"]

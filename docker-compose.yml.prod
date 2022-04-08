@@ -10,14 +10,11 @@ services:
         container_name: swforum-radar-node
         init: true
         ports:
-            - 8080:8080
-        privileged: true
+            - 81:8080
         networks:
             swforum-radar-nw:
         depends_on:
             - mongo
-        volumes:
-            - $PWD/:/home/node/swforum-radar
     mongo:
         build:
             context: .
