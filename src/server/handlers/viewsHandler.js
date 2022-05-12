@@ -31,7 +31,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     if (!editions || editions.length === 0) {
         res.locals.alert = {
             status: 'warning',
-            message: 'Unable to fetch radar editions.',
+            // message: 'Unable to fetch radar editions.',
         }
     } else {
         // 4) process result
