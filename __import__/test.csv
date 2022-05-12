@@ -1,4 +1,4 @@
-Acronym,RCN,Call,Type,Start,End,Budget,Title,Teaser,website,Funding Body link, HUB URL
+Acronym,RCN,Call (optional),Type (optional),Start,End,Budget (optional),Title,Teaser,website (optional),Funding Body link (optional), HUB URL (optional)
 5GZORRO,225650,ICT-20-2019-2020,RIA,Nov 2019,Apr 2022,"1000",Zero-touch security,Teaser,,,
 LOCARD,223296,SU-FCT02-2018-2019-2020,RIA,May 2019,Apr 2022,1000000,Lawful evidence collecting,,,,
 FASTEN,825328,ICT-16-2018,IA,2019-01-01,2021-12-31,,Fine-Grained Analysis of Software Ecosystems as Networks,"The aim is to make software ecosystems more robust by making package management more intelligent. This objective relies on the Fine-Grained Call Graph (FGCG) method that serves to analyze i) security vulnerability propagation,ii) licensing compliance,and iii) dependency risk profiles and processing. To facilitate adoption,FASTEN applies the approach to popular package managers for Java,C,and Python programming languages.",https://www.fasten-project.eu/,https://cordis.europa.eu/project/id/825328,https://swforum.eu/project-hub/fine-grained-analysis-software-ecosystems-networks
