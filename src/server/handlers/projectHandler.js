@@ -117,33 +117,31 @@ exports.deleteProject = catchAsync(async (req, res, next) => {
 
 exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!
-    const num_id = req.params.id
-    if (!num_id || isNaN(num_id)) {
-        throw new AppError('Missing or non-number swforum id in request.', 400)
+    const rcn = req.body.project.rcn
+    if (!rcn || isNaN(rcn)) {
+        throw new AppError('Missing or non-number rcn in request.', 400)
     }
 
     // 2) Filter out disallowed fields from the request body
-    const doc = handlerFactory.filterFields(req.body, [
-        'num_id',
-        'hasClassifications',
-        'hasScores',
+    const doc = handlerFactory.filterFields(req.body.project, [
+        'rcn',
         'classification',
         'mtrlScores',
     ])
 
     // 3) go straight to Project Model to update
-    const project = await Project.findOneAndUpdate({ num_id: num_id }, doc, {
+    const project = await Project.findOneAndUpdate({ rcn: rcn }, doc, {
         new: true,
         runValidators: true,
     })
     if (!project) {
-        return next(new AppError('No project found with that ID', 404))
+        return next(new AppError('No project found with that RCN: ' + rcn , 404))
     }
 
     // return project if found
     res.status(200).json({
         status: 'success',
-        data: project,
+        data: doc,
     })
 })
 
