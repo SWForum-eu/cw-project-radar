@@ -29,10 +29,10 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     const editions = await radarController.getEditions()
     // 2) Error handling
     if (!editions || editions.length === 0) {
-        res.locals.alert = {
-            status: 'warning',
-            // message: 'Unable to fetch radar editions.',
-        }
+        // res.locals.alert = {
+        //     // status: 'warning',
+        //     // message: 'Unable to fetch radar editions.',
+        // }
     } else {
         // 4) process result
         res.locals.editions = editions
