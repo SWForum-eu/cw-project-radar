@@ -123,7 +123,7 @@ Copy `.env.template` to `.env.dev` and open it in your favourite text editor. Th
 The repository comes with a number of scripts required to prime the database with 
 
 1. The minimal information necessary to start from scratch, OR
-2. Prime the database with the reference data set created and collected by the Cyberwatching.eu project up to and including 31 December 2020.
+2. Prime the database with the reference data set created and collected by the swforum.eu project.
 
 ### 5.1 Priming the database
 
