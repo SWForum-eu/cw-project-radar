@@ -19,20 +19,20 @@ const mtrlScoreSchema = new mongoose.Schema(
         // when was the score added?
         scoringDate: {
             type: Date,
-            required: true,
+            // required: true,
             default: Date.now(),
         },
         // what's the MRL?
         mrl: {
             type: Number,
-            required: true,
+            // required: true,
             min: [0, 'MRL must be between 0 and 9.'],
             max: [9, 'MRL must be between 0 and 9.'],
         },
         // what's the TRL?
         trl: {
             type: Number,
-            required: true,
+            // required: true,
             min: [0, 'MRL must be between 0 and 9.'],
             max: [9, 'MRL must be between 0 and 9.'],
         },

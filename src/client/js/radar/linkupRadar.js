@@ -77,7 +77,7 @@ const zoomIn = (i, l) => {
 
     // Rotate and transform clicked segment
     const seg = document.querySelector(`.segment.segment-${i}`)
-    seg.style.transform = `scale(2) translateY(25%) rotate(${angle}deg)`
+    seg.style.transform = `scale(1.25) translateY(25%) rotate(${angle}deg)`
     seg.classList.add('zoomed')
     // text in clicked segment rotates at inverse angle (to level them again)
     seg.querySelectorAll('.blip text').forEach((t) => {
