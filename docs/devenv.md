@@ -43,8 +43,8 @@ user$
 In a terminal, change into the project's parent directory, and execute `git clone https://github.com/micheldrescher/cw-project-radar.git` This will create the project folder, download the entire codebase, and set up a local repository for you. 
 
 ```
-user$ git clone https://github.com/micheldrescher/cw-project-radar.git
-Cloning into 'cw-project-radar'...
+user$ git clone https://github.com/SWForum-eu/swforum-radar.git
+Cloning into 'swforum-radar'...
 remote: Enumerating objects: 639, done.
 remote: Counting objects: 100% (639/639), done.
 remote: Compressing objects: 100% (410/410), done.
@@ -56,25 +56,11 @@ user$
 
 ### 2. Install node modules ###
 
-Next up, install the necessary Node.js modules: `cd cw-project-radar` and `npm install`
+Next up, install the necessary Node.js modules: `cd swforum-radar` and `npm install`
 
 ```
-user$ cd cw-project-radar
+user$ cd swforum-radar
 user$ npm install
-
-> cw-project-radar@0.7.4 preinstall [MASKED]/cw-project-radar
-> npx npm-force-resolutions
-
-npx: installed 5 in 1.712s
-
-[INSTALLATION MESSAGES]
-
-added 1631 packages from 816 contributors and audited 1620 packages in 60.143s
-
-65 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
 
 user$ 
 ```
@@ -86,7 +72,7 @@ If you decide to run the local dev env using HTTPS - it is equally possible to r
 ```
 user$ npm run selfsign
 
-> cw-project-radar@0.7.4 selfsign [MASKED]]/cw-project-radar
+> swforum-radar@0.7.4 selfsign [MASKED]]/swforum-radar
 > openssl genrsa -out key.pem && openssl req -new -key key.pem -out csr.peM && openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem && rm csr.pem
 
 Generating RSA private key, 2048 bit long modulus
@@ -144,7 +130,7 @@ The repository comes with a number of scripts required to prime the database wit
 The scripts provided in the repository REQUIRE that MongoDB runs locally on the dev env computer. Otherwise you are required to adapt the scripts to suit your local needs prior.
 
 This steps comprises of executing one shell script (Linux, Mac OS X). This script will execute two Javascript scripts directly on MongoDB to:
-1. Drop any existing database with the name `cw-project-radar`
+1. Drop any existing database with the name `swforum-radar`
 1. Create all necessary document collections, including search indexes
 1. Create a unique proejct id sequence
 1. Create the default administrator user account (see below)
@@ -152,7 +138,7 @@ This steps comprises of executing one shell script (Linux, Mac OS X). This scrip
 Open a terminal and change into the project directory. Then invoke the priming shell script like so:
 
 ```
-user$ cd [MASKED]/cw-project-radar
+user$ cd [MASKED]/swforum-radar
 user$
 user$ ./scripts/mongo/init.sh
 *************************
@@ -179,7 +165,7 @@ Setting up the dev env is now complete. You may continue to [URL TO NEXT DOC] or
 Open a terminal and change into the project directory. Then execute the data import script like so:
 
 ```
-user$ cd [MASKED]/cw-project-radar
+user$ cd [MASKED]/swforum-radar
 user$
 user$ ./scripts/mongo/import.sh
 *******************
@@ -209,4 +195,54 @@ user$
 
 Pay attention to the response messages from MongoDB - all documents must be successfully imported.
 
-This concludes setting up the dev env. Continue with the [NEXT SECTION].
+This concludes setting up the dev env. Continue with the NEXT SECTION.
+
+
+### 6 Run the Program
+
+Open 4 different terminal windows simultaneously and run the following code.
+
+### 6.1 Terminal 1
+
+Open a terminal and change into the project directory. Then execute the script to initiate the database like so.
+
+```
+user$ cd swforum-radar
+user$ mongod
+```
+
+This command will get the database up and running to display the data on the webpage.
+
+### 6.2 Terminal 2
+
+Open a second terminal and run the following script to compile the pug code into javascript files.
+
+```
+user$ npm run dev:watch:pug
+```
+
+This will generate various javascript files to display the pages written in pug.
+
+### 6.3 Terminal 3
+
+Open a third terminal and run the following script to compile and run the generated javacript files from step 2.
+
+```
+user$ npm run dev:watch:js
+```
+
+It is very important that this step is carried out after step 2 as the javascript files are only generated once the pug files are compiled.
+
+### 6.3 Terminal 4
+Open a fourth terminal and run the following script to run the program on the localhost server.
+
+```
+user$ npm run dev
+```
+
+Windows users can run this script instead
+```
+user$ npm run devwin
+```
+
+This should open your program in your default browser. If not, you can go to localhost:8080 to navigate the website.
