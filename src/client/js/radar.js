@@ -479,7 +479,7 @@ if (newProjectForm) {
             // classification (if any)
             classification: {
                 classification: document.getElementById('classification').value,
-                classification_2nd: document.getElementById('classification_2nd').value,
+                secondary_classification: document.getElementById('secondary_classification').value,
                 classifiedBy: 'SWForum', // for now this is hardcoded when using the web UI
                 changeSummary: document.getElementById('changeSummary').value
             }
@@ -568,12 +568,12 @@ const addCategoryForm = document.getElementById('add-category-form')
 if (addCategoryForm) {
     addCategoryForm.addEventListener('submit', async (event) => {
         event.preventDefault()
-        const num_id = document.getElementById('numid').value
+        const num_id = document.getElementById('rcn').value
         const classification = document.getElementById('classification').value
-        const classification_2nd = document.getElementById('classification_2nd').value
+        const secondary_classification = document.getElementById('secondary_classification').value
         const classifiedBy = 'SWForum' // for now this is hardcoded when using the web UI
         const changeSummary = document.getElementById('changeSummary').value
-        addClassification(num_id, classification, classification_2nd, classifiedBy, changeSummary)
+        addClassification(num_id, classification, secondary_classification, classifiedBy, changeSummary)
     })
 }
 
@@ -584,12 +584,12 @@ const addScoreForm = document.getElementById('add-score-form')
 if (addScoreForm) {
     addScoreForm.addEventListener('submit', async (event) => {
         event.preventDefault()
-        const num_id = document.getElementById('numid').value
+        const rcn = document.getElementById('rcn').value
         const mrl = document.getElementById('mrl').value
         const trl = document.getElementById('trl').value
         const scoringDate = document.getElementById('scoringdate').value
         const description = document.getElementById('scoreDescription').value
-        addScore(num_id, mrl, trl, scoringDate, description)
+        addScore(rcn, mrl, trl, scoringDate, description)
     })
 }
 

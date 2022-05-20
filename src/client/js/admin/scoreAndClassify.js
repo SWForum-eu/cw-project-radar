@@ -6,14 +6,14 @@ import showAlert from '../util/alert'
 //
 // add classification to a project
 //
-const addClassification = async (num_id, classification, classification_2nd, classifiedBy, changeSummary) => {
+const addClassification = async (rcn, classification, secondary_classification, classifiedBy, changeSummary) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `/api/v1/project/${num_id}/categorise`,
+            url: `/api/v1/project/${rcn}/categorise`,
             data: {
                 classification,
-                classification_2nd,
+                secondary_classification,
                 classifiedBy,
                 changeSummary,
             },
@@ -33,11 +33,11 @@ const addClassification = async (num_id, classification, classification_2nd, cla
 //
 // add classification to a project
 //
-const addScore = async (num_id, mrl, trl, scoringDate, description) => {
+const addScore = async (rcn, mrl, trl, scoringDate, description) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `/api/v1/project/${num_id}/score`,
+            url: `/api/v1/project/${rcn}/score`,
             data: {
                 mrl,
                 trl,

@@ -78,8 +78,7 @@ app.use(
                 frameAncestors: [
                     "'self'",
                     'https:',
-                    'cradar.cyberwatching.eu',
-                    'radar.cyberwatching.eu',
+                    'radar.swforum.eu',
                 ],
                 imgSrc: ["'self'", 'data:'],
                 objectSrc: ["'none'"],

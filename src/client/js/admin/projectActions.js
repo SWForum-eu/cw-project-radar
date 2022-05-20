@@ -73,7 +73,7 @@ const updateProject = async (prjData) => {
         } = prjData
         const res = await axios({
             method: 'PATCH',
-            url: `/api/v1/project/${prjData.num_id}`,
+            url: `/api/v1/project/${prjData.rcn}`,
             data: {
                 acronym,
                 title,
