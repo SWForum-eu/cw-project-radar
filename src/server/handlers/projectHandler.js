@@ -117,13 +117,13 @@ exports.deleteProject = catchAsync(async (req, res, next) => {
 
 exports.updateProject = catchAsync(async (req, res, next) => {
     // 1) The id must be a valid CW id, not an ObjectID!
-    const rcn = req.body.project.rcn
+    const rcn = req.body.rcn
     if (!rcn || isNaN(rcn)) {
         throw new AppError('Missing or non-number rcn in request.', 400)
     }
 
     // 2) Filter out disallowed fields from the request body
-    const doc = handlerFactory.filterFields(req.body.project, [
+    const doc = handlerFactory.filterFields(req.body, [
         'rcn',
         'classification',
         'mtrlScores',
