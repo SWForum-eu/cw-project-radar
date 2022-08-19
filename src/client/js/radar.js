@@ -473,13 +473,13 @@ if (newProjectForm) {
             mtrl: {
                 mrl: document.getElementById('mrl').value,
                 trl: document.getElementById('trl').value,
-                scoringDate: document.getElementById('scoringdate').value,
+                scoringDate: document.getElementById('scoringDate').value,
                 description: document.getElementById('scoreDescription').value,
             },
             // classification (if any)
             classification: {
                 classification: document.getElementById('classification').value,
-                secondary_classification: document.getElementById('secondary_classification').value,
+                secondary_classification: document.getElementById('classification_2nd').value,
                 classifiedBy: 'SWForum', // for now this is hardcoded when using the web UI
                 changeSummary: document.getElementById('changeSummary').value
             }
@@ -570,7 +570,7 @@ if (addCategoryForm) {
         event.preventDefault()
         const num_id = document.getElementById('rcn').value
         const classification = document.getElementById('classification').value
-        const secondary_classification = document.getElementById('secondary_classification').value
+        const secondary_classification = document.getElementById('classification_2nd').value
         const classifiedBy = 'SWForum' // for now this is hardcoded when using the web UI
         const changeSummary = document.getElementById('changeSummary').value
         addClassification(num_id, classification, secondary_classification, classifiedBy, changeSummary)
