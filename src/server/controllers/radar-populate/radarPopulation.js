@@ -18,14 +18,14 @@ const { Project } = require('../../models/projectModel')
 //
 const rings = process.env.MODEL_RINGS.split(',').map((e) => e.trim())
 const segments = process.env.MODEL_SEGMENTS.split(',').map((e) => e.trim())
-const isNew = process.env.IS_NEW | 6
+const isNew = process.env.IS_NEW || 3
 
 //
 // Compile the blips for all projects that are in scope for the radar
 //
 exports.compileRadarPopulation = async (cutOffDate) => {
     // some generally used vars
-    const ageInMonths = process.env.MODEL_MAX_AGE || 36 // default of 3 year cutoff time
+    const ageInMonths = process.env.MODEL_MAX_AGE || 12 // default of 1 year cutoff time
     const prjMaxAge = cutOffDate.clone().subtract(ageInMonths, 'months')
 
     // 1) Fetch all projects that:
@@ -146,11 +146,17 @@ const createRadarData = (data, cutOffDate) => {
     return radarData
 }
 
-const calcIsNew = (createDate, cutOffDate) => {
-    const create = moment(createDate)
-    const compare = cutOffDate.subtract(isNew, 'months')
-    return compare.isBefore(create)
+const calcIsNew = (createDate) => {
+    const today = moment(Date.now())
+    const compare = today.subtract(isNew, 'months')
+    return compare.isBefore(moment(createDate))
 }
+
+// const calcIsNew = (createDate, cutOffDate) => {
+//     const create = moment(createDate)
+//     const compare = cutOffDate.subtract(isNew, 'months')
+//     return compare.isBefore(create)
+// }
 
 //
 // Calculate statistics for each ring
