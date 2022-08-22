@@ -1,0 +1,47 @@
+#############
+#  BUILDER  #
+#############
+FROM node:13.10 AS builder
+
+# set the workdir
+WORKDIR /home/node/cw
+
+# Install Node dependencies
+COPY package*.json ./
+RUN npm install
+
+# copy the source code
+COPY . .
+## build the distro
+RUN npm run build
+
+
+#############
+#  RELEASE  #
+#############
+FROM node:13.10-slim
+
+ENV TZ=Europe/Brussels
+
+# set the user
+USER node:node
+RUN mkdir /home/node/swforum-radar
+
+# set the workdir
+WORKDIR /home/node/swforum-radar
+RUN mkdir logs
+
+# copy the distrobution files
+COPY --chown=node:node --from=builder /home/node/sw/dist/client ./client
+COPY --chown=node:node --from=builder /home/node/sw/dist/common ./common
+COPY --chown=node:node --from=builder /home/node/sw/dist/server ./server
+COPY --chown=node:node --from=builder /home/node/sw/dist/.env .
+COPY --chown=node:node --from=builder /home/node/sw/dist/.env ./.env.prod
+COPY --chown=node:node --from=builder /home/node/sw/package.json .
+COPY --chown=node:node --from=builder /home/node/sw/node_modules ./node_modules
+COPY --chown=node:node --from=builder /home/node/sw/scripts ./scripts
+
+
+EXPOSE 8080
+
+CMD ["npm", "start"]

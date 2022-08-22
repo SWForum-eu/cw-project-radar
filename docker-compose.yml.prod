@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+    swforum-project-radar:
+        build:
+            context: .
+            dockerfile: Dockerfile_node.prod
+        restart: always
+        image: swforum-radar-node:latest
+        container_name: swforum-radar-node
+        init: true
+        ports:
+            - 81:8080
+        networks:
+            swforum-radar-nw:
+        depends_on:
+            - mongo
+    mongo:
+        build:
+            context: .
+            dockerfile: Dockerfile_mongo
+        image: swforum-radar-mongo:latest
+        container_name: swradar-mongo
+        restart: always
+        environment:
+            - MONGO_INITDB_DATABASE=swforum-radar
+            - AUTH=no
+        volumes:
+            - dbdata:/data/db
+        ports:
+            - 27017:27017
+        networks:
+            swforum-radar-nw:
+
+volumes:
+    dbdata:
+        name: swforum-radar-data
+
+networks:
+    swforum-radar-nw:
+        name: swforum-radar

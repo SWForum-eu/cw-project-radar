@@ -51,7 +51,8 @@ const classificationSchema = new mongoose.Schema(
         // what is the reason for this classification (or the update)
         changeSummary: {
             type: String,
-            required: false
+            required: false,
+            default: 'New Classification'
         }
     },
     {

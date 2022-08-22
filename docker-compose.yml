@@ -1,41 +1,61 @@
 version: '3.7'
 
 services:
-    cw-project-radar:
+    swforum-project-radar:
         build:
             context: .
             dockerfile: Dockerfile_node
-        image: cw-radar-node:latest
-        container_name: cw-radar-node
-        restart: always
+        image: swforum-radar-node
+        container_name: swforum-radar-node
         init: true
         ports:
-            - 8080:8080
+            - 8081:8080
+            - 8082:80
+        
+        privileged: true
         networks:
-            cw-radar-nw:
+            swforum-radar-nw:
         depends_on:
             - mongo
-
+        volumes:
+            - $PWD/:/home/node/swforum-radar
+    CW_MYSQL:
+        image: mysql
+        container_name: mysql
+        init: true
+        ports:
+            - 3306:3306
+        networks:
+            swforum-radar-nw:
+    drupal:
+        image: drupal
+        container_name: drupal
+        init: true
+        ports: 
+            - 8080:80
+        privileged: true
+        networks:
+            swforum-radar-nw:
+        depends_on:
+            - CW_MYSQL 
     mongo:
         build:
             context: .
             dockerfile: Dockerfile_mongo
-        image: cw-radar-mongo:latest
-        container_name: cw-radar-mongo
+        image: swforum-radar-mongo
+        container_name: swradar-mongo
         restart: always
-        environment:
-            - MONGO_INITDB_DATABASE=cw-project-radar
         volumes:
             - dbdata:/data/db
         ports:
-            - 27017:27017
+            - 20017:27017
         networks:
-            cw-radar-nw:
+            swforum-radar-nw:
 
 volumes:
     dbdata:
-        name: cw-radar-data
+        name: swforum-radar-data
 
 networks:
-    cw-radar-nw:
-        name: cw-radar
+    swforum-radar-nw:
+        name: swforum-radar
