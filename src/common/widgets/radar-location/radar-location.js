@@ -50,7 +50,7 @@ class RadarLocation extends HTMLElement {
     getAttributes = () => {
         return {
             numSegs: Number.parseInt(this.getAttribute('numSegments')) || 6,
-            numRings: Number.parseInt(this.getAttribute('numRings')) || 5,
+            numRings: Number.parseInt(this.getAttribute('numRings')) || 4,
             segIdx: Number.parseInt(this.getAttribute('segIdx')) || 0,
             ringIdx: Number.parseInt(this.getAttribute('ringIdx')) || 0,
             radiiFunc: this.checkMode(this.getAttribute('mode')),
