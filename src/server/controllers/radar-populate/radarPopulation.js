@@ -90,15 +90,24 @@ const mapProjectsToData = async (projects, data, cutOffDate) => {
 // DOMAIN-SPECIFIC ring calculator.
 //
 const calculateRing = (project, radarDate) => {
+
+
     let testDate = radarDate.clone()
 
-    if (project.endDate < testDate.toDate()) return rings[3] // Hold
+    testDate.add(50, 'years')
+    if (project.endDate > testDate.toDate()) return rings[4] //open source
 
+    testDate = radarDate.clone()
+
+    if (project.endDate < testDate.toDate()) return rings[3] // Hold
+    
     testDate.add(1, 'years')
     if (project.endDate < testDate.toDate()) return rings[0] // Adopt
 
     testDate.add(1, 'years')
     if (project.endDate < testDate.toDate()) return rings[1] // Trial
+
+
 
     // testDate.add(1, 'years')
     // if (project.endDate < testDate.toDate()) 
