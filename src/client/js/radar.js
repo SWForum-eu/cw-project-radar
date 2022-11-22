@@ -587,7 +587,7 @@ if (addScoreForm) {
         const rcn = document.getElementById('rcn').value
         const mrl = document.getElementById('mrl').value
         const trl = document.getElementById('trl').value
-        const scoringDate = document.getElementById('scoringdate').value
+        const scoringDate = document.getElementById('scoringDate').value
         const description = document.getElementById('scoreDescription').value
         addScore(rcn, mrl, trl, scoringDate, description)
     })
