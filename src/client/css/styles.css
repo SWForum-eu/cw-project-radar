@@ -425,7 +425,7 @@ svg g.segment > path.ring-3 {
 }
 
 svg g.segment > path.ring-4 {
-    fill: #eee;
+    fill: rgb(104, 102, 102);
 }
 
 svg g line {

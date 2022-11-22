@@ -93,7 +93,7 @@ const calculateRing = (project, radarDate) => {
     let testDate = radarDate.clone()
 
     testDate.add(50, 'years')
-    if(project.endDate > testDate.toDate()) return rings[5] // open
+    if(project.endDate > testDate.toDate()) return rings[4] // open
 
     testDate = radarDate.clone()
 
