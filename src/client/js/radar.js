@@ -483,8 +483,8 @@ if (newProjectForm) {
                 classifiedBy: 'SWForum', // for now this is hardcoded when using the web UI
                 changeSummary: document.getElementById('changeSummary').value
             }
-
         }
+
         // add the taxonomy tax to the project tags
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
             values.project.tags.push(c.value)
