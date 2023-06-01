@@ -200,8 +200,9 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
             .append('circle')
             .attr('r', geom.blipDia /2)
             .attr('fill', 'white')
-            .attr('stroke-width', colour === '#000000' ? 2 : 4)
             .attr('stroke', colour)
+            .attr('stroke-width', colour === '#000000' ? 2 : 4)
+            
     }
 
     // // as a square
