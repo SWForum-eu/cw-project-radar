@@ -627,7 +627,7 @@ if (taxonomySubmit) {
     taxonomySubmit.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
-            num_id: document.getElementById('project_numid').value,
+            num_id: document.getElementById('rcn').value,
             tags: [],
         }
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {

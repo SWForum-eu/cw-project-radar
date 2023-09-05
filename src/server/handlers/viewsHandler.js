@@ -69,7 +69,7 @@ exports.showMain = catchAsync(async (req, res, next) => {
         kpis.span = moment(kpis.end).diff(kpis.start, 'months') + 1 // reduce start and end to months
         kpis.span = roundDec(kpis.span / 12, 1) // in years, with one decimal
         kpis.calls = kpis.calls.length // reduce calls array to its length
-        kpis.totalCost = roundDec(kpis.totalCost / 1000000000, 1) // budget in €bn
+        kpis.totalCost = roundDec(kpis.totalCost / 1000000000, 2) // budget in €bn
     } else {
         kpis = {
             span: 0,
